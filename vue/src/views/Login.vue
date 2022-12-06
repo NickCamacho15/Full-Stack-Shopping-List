@@ -15,12 +15,16 @@
 
       <label for="username" class="sr-only"></label>
       <div class="login__field">
-        <i class="login__icon fas fa-user"></i>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:400,700"
+        />
+        <i class="login__icon fa fa-user"></i>
         <input
           type="text"
           id="username"
           class="form-control"
-          placeholder="Username"
+          placeholder="Email"
           v-model="user.username"
           required
           autofocus
@@ -29,7 +33,7 @@
 
       <label for="password" class="sr-only"></label>
       <div class="login__field">
-        <i class="login__icon fas fa-lock"></i>
+        <font-awesome-icon icon="fa-solid fa-lock" />
         <input
           type="password"
           id="password"
@@ -53,6 +57,7 @@
     </form>
   </div>
 </template>
+
 
 <script>
 import authService from "../services/AuthService";
@@ -133,6 +138,23 @@ body #login {
   padding: 20px 0px;
   position: relative;
 }
+.sign-in-and-registration-buttons {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 76%;
+  color: #4c489d;
+  box-shadow: 0px 2px 2px #5c5696;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
 .form-control {
   border: none;
@@ -150,24 +172,6 @@ body #login {
 .form-control:hover {
   outline: none;
   border-bottom-color: #6a679e;
-}
-
-.sign-in-and-registration-buttons {
-  background: #fff;
-  font-size: 14px;
-  margin-top: 30px;
-  padding: 16px 20px;
-  border-radius: 26px;
-  border: 1px solid #d4d3e8;
-  text-transform: uppercase;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  width: 76%;
-  color: #4c489d;
-  box-shadow: 0px 2px 2px #5c5696;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .sign-in-and-registration-buttons:active,
@@ -188,7 +192,10 @@ body #login {
 
 .login__icon {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 30px;
-  color: #7875b5;
+  color: white;
+  z-index: 1;
 }
 </style>
