@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import AddGroup from '../views/AddGroup.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/addgroup',
+      name: 'AddGroup',
+      component: AddGroup
     },
     {
       path: "/login",

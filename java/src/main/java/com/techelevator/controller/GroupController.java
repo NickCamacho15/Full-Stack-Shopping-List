@@ -19,7 +19,7 @@ public class GroupController {
     }
 
     @GetMapping("/groups/{username}")
-    public List<Group> getGroupsByUser(Principal principal, @PathVariable String username)
+    public List<Group> getGroupsByUser(@PathVariable String username)
     {return this.groupDao.getGroups(username);}
 
     @PostMapping("/addgroup")

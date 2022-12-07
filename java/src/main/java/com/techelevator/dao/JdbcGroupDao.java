@@ -44,6 +44,7 @@ public class JdbcGroupDao implements GroupDao {
                 "VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
 
         try {
+
             newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, username, groupName);
             jdbcTemplate.update(sql2, username, newGroupId);
 
