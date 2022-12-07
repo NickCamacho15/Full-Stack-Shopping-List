@@ -15,11 +15,11 @@
 
       <label for="username" class="sr-only"></label>
       <div class="login__field">
-        <link
+        <!-- <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway:400,700"
         />
-        <i class="login__icon fa fa-user"></i>
+        <i class="login__icon fa fa-user"></i> -->
         <input
           type="text"
           id="username"
@@ -33,7 +33,7 @@
 
       <label for="password" class="sr-only"></label>
       <div class="login__field">
-        <font-awesome-icon icon="fa-solid fa-lock" />
+        <!-- <font-awesome-icon icon="fa-solid fa-lock" /> -->
         <input
           type="password"
           id="password"
@@ -44,7 +44,7 @@
         />
       </div>
       <button type="submit" class="sign-in-and-registration-buttons">
-        <i class="button__icon fas fa-chevron-right"></i>
+        <!-- <i class="button__icon fas fa-chevron-right"></i> -->
         Sign in
       </button>
 
