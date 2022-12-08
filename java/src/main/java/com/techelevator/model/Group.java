@@ -1,26 +1,32 @@
 package com.techelevator.model;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Group {
     private int groupId;
     private String groupName;
-    private List<String> members;
+    //private List<String> members;
     //private List<List> groupList;
-
-    public Group(int groupId, String groupName, List<String> members) {
-        this.groupId = groupId;
-        this.groupName = groupName;
-        this.members = members;
-    }
+    private LocalDate createDate;
 
     public Group(int groupId, String groupName) {
         this.groupId = groupId;
         this.groupName = groupName;
     }
 
+
     public Group() {
 
+    }
+
+    public LocalDate getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
     }
 
     public int getGroupId() {
@@ -39,11 +45,4 @@ public class Group {
         this.groupName = groupName;
     }
 
-    public List<String> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<String> members) {
-        this.members = members;
-    }
 }
