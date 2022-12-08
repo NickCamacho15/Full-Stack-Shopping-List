@@ -1,12 +1,12 @@
 <template>
   <section>
-    <table>
+    <table id="groupTable">
       <thead>
-        <th>My Groups</th>
+        <th class="header"></th>
       </thead>
       <tbody>
-        <tr v-for="group in setGroups" :key="group.group_id">
-          <td>
+        <tr class="body" v-for="group in setGroups" :key="group.group_id">
+          <td class="groups">
             <group :group="group" />
           </td>
         </tr>
@@ -47,4 +47,20 @@ export default {
 </script>
 
 <style scoped>
+#groupTable {
+  display: flex;
+  justify-content: center;
+  margin: 200px;
+}
+
+.header {
+  font-size: 28px;
+  justify-content: center;
+}
+.body {
+  justify-content: center;
+}
+.groups {
+  padding-bottom: 20px;
+}
 </style>
