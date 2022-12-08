@@ -1,7 +1,15 @@
 <template>
   <div id="register" class="text-center">
+    <div class="parent">
+      <img
+        class="image1"
+        src="../assets/pexels-tirachard-kumtanom-733852.jpg"
+        alt="background image"
+      />
+      <img class="image2" src="../assets/logo.png" alt="logo" />
+    </div>
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal">create account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -40,15 +48,17 @@
       </div>
 
       <!-- <button class="btn btn-lg btn-primary btn-block" type="submit"> -->
-      <button class="create-and-have-an-account-buttons" type="submit">
-        Submit
-      </button>
-      <router-link
-        tag="button"
-        class="create-and-have-an-account-buttons"
-        :to="{ name: 'login' }"
-        >Already have an account?</router-link
-      >
+      <div class="registration-buttons">
+        <button class="create-and-have-an-account-buttons" type="submit">
+          Submit
+        </button>
+        <router-link
+          tag="button"
+          class="create-and-have-an-account-buttons"
+          :to="{ name: 'login' }"
+          >Already have an account?</router-link
+        >
+      </div>
     </form>
   </div>
 </template>
@@ -112,6 +122,25 @@ export default {
   padding: 0;
   font-family: Raleway, sans-serif;
 }
+body #register {
+  background: linear-gradient(90deg, white, rgb(2, 2, 107));
+}
+.image1 {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.image2 {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+}
 .text-center {
   display: flex;
   align-items: center;
@@ -119,24 +148,26 @@ export default {
   min-height: 100vh;
 }
 .form-register {
-  background: linear-gradient(90deg, #5d54a4, #7c78b8);
+  background: linear-gradient(90deg, white, white);
   position: absolute;
-  top: 0px;
+  /* top: 0px;
   right: 0px;
   bottom: 0px;
-  left: 0px;
-  width: 100%;
+  left: 0px; */
+  width: 760px;
   padding: 30px;
   padding-top: 120px;
-  box-shadow: 0px 0px 24px #5c5696;
+  box-shadow: 0px 0px 10px #5c5696;
   /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
   height: 100%;
   /**/
-  /* height: 600px; */
-  box-shadow: 0px 0px 24px #5c5696;
+  height: 600px;
+  /* box-shadow: 0px 0px 24px #5c5696; */
 }
 h1 {
-  color: aliceblue;
+  color: black;
+  text-align: center;
+  font-size: 28px;
 }
 .form-control {
   border: none;
@@ -159,6 +190,7 @@ h1 {
 .login__field {
   padding: 20px 0px;
   position: relative;
+  text-align: center;
 }
 
 .form-control {
@@ -184,17 +216,21 @@ h1 {
   font-size: 14px;
   margin-top: 30px;
   padding: 16px 20px;
-  border-radius: 26px;
+  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 76%;
-  color: #4c489d;
-  box-shadow: 0px 2px 2px #5c5696;
+  width: 100%;
+  color: black;
+  box-shadow: 0px 2px 2px black;
   cursor: pointer;
   transition: 0.2s;
+}
+.registration-buttons {
+  margin: 0 auto;
+  width: 50%;
 }
 
 .create-and-have-an-account-buttons:active,

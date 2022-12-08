@@ -1,7 +1,15 @@
 <template>
   <div id="login" class="text-center">
+    <div class="parent">
+      <img
+        class="image1"
+        src="../assets/pexels-tirachard-kumtanom-733852.jpg"
+        alt="background image"
+      />
+      <img class="image2" src="../assets/logo.png" alt="logo" />
+    </div>
     <form class="form-signin" @submit.prevent="login">
-      <!-- <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1> -->
+      <h1 class="h3 mb-3 font-weight-normal">welcome to mike's list</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -15,11 +23,11 @@
 
       <label for="username" class="sr-only"></label>
       <div class="login__field">
-        <!-- <link
+        <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway:400,700"
         />
-        <i class="login__icon fa fa-user"></i> -->
+        <i class="login__icon fa fa-user"></i>
         <input
           type="text"
           id="username"
@@ -33,7 +41,7 @@
 
       <label for="password" class="sr-only"></label>
       <div class="login__field">
-        <!-- <font-awesome-icon icon="fa-solid fa-lock" /> -->
+        <font-awesome-icon icon="fa-solid fa-lock" />
         <input
           type="password"
           id="password"
@@ -43,17 +51,20 @@
           required
         />
       </div>
-      <button type="submit" class="sign-in-and-registration-buttons">
-        <!-- <i class="button__icon fas fa-chevron-right"></i> -->
-        Sign in
-      </button>
 
-      <router-link
-        tag="button"
-        class="sign-in-and-registration-buttons"
-        :to="{ name: 'register' }"
-        >Create an account</router-link
-      >
+      <div class="buttons">
+        <button type="submit" class="sign-in-and-registration-buttons">
+          <!-- <i class="button__icon fas fa-chevron-right"></i> -->
+          Sign in
+        </button>
+
+        <router-link
+          tag="button"
+          class="sign-in-and-registration-buttons"
+          :to="{ name: 'register' }"
+          >Create an account</router-link
+        >
+      </div>
     </form>
   </div>
 </template>
@@ -106,9 +117,24 @@ export default {
   font-family: Raleway, sans-serif;
 }
 body #login {
-  background: linear-gradient(90deg, #c7c5f4, #776bcc);
+  background: linear-gradient(90deg, white, rgb(2, 2, 107));
+}
+.image1 {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
 
+.image2 {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+}
 .text-center {
   display: flex;
   align-items: center;
@@ -117,41 +143,47 @@ body #login {
 }
 
 .form-signin {
-  background: linear-gradient(90deg, #5d54a4, #7c78b8);
+  background: linear-gradient(90deg, white, white);
   position: absolute;
-  top: 0px;
+  /* top: 0px;
   right: 0px;
   bottom: 0px;
-  left: 0px;
-  width: 100%;
+  left: 0px; */
+  width: 760px;
   padding: 30px;
+  margin: auto;
+  text-align: center;
   padding-top: 120px;
-  box-shadow: 0px 0px 24px #5c5696;
+  box-shadow: 0px 0px 10px black;
   /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
   height: 100%;
   /**/
-  /* height: 600px; */
-  box-shadow: 0px 0px 24px #5c5696;
+  height: 600px;
+  /* box-shadow: 0px 0px 24px #5c5696; */
 }
 
 .login__field {
   padding: 20px 0px;
   position: relative;
 }
+.buttons {
+  margin: 0 auto;
+  width: 50%;
+}
 .sign-in-and-registration-buttons {
   background: #fff;
   font-size: 14px;
   margin-top: 30px;
   padding: 16px 20px;
-  border-radius: 26px;
+  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 76%;
-  color: #4c489d;
-  box-shadow: 0px 2px 2px #5c5696;
+  width: 100%;
+  color: black;
+  box-shadow: 0px 2px 2px black;
   cursor: pointer;
   transition: 0.2s;
 }
