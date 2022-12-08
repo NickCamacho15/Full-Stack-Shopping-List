@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       group: {
-        id: Math.floor(Math.random() * (1000 - 100) + 100),
+        id: "",
         name: "",
       },
     };
