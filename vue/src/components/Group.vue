@@ -1,6 +1,6 @@
 <template>
   <div class="group">
-    <h1 class="group-name">{{ group.group_name }}</h1>
+    <h1 class="group-name">{{ group.groupName }}</h1>
   </div>
 </template>
 

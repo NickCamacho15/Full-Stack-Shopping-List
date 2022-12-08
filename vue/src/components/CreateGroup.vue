@@ -29,7 +29,7 @@ export default {
     saveGroup() {
       const groupName = this.group.name;
       groupService.create(this.currentUsername, groupName).then((response) => {
-        if (response.status === 200) {
+        if (response.status === 201) {
           this.$router.push({ name: "home" });
         }
       });

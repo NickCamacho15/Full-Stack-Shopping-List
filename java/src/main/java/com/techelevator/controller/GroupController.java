@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.GroupDao;
 import com.techelevator.model.Group;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ public class GroupController {
     public List<Group> getGroupsByUser(@PathVariable String username)
     {return this.groupDao.getGroups(username);}
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/addgroup")
     public boolean create(@RequestParam String username, @RequestParam String groupName){
         return this.groupDao.createGroup(username, groupName);
