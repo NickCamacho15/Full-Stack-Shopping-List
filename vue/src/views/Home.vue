@@ -1,12 +1,19 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <groups-list></groups-list>
+    <router-link
+      tag="button"
+      class="open-create-form"
+      :to="{ name: 'AddGroup' }"
+      >Add a group</router-link
+    >
   </div>
 </template>
 
 <script>
+import GroupsList from "@/components/GroupsList.vue";
+
 export default {
-  name: "home",
+  components: { GroupsList },
 };
 </script>
