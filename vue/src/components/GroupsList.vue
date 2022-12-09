@@ -5,7 +5,7 @@
         <th class="header"></th>
       </thead>
       <tbody>
-        <tr class="body" v-for="group in setGroups" :key="group.group_id">
+        <tr class="body" v-for="group in setGroups" :key="group.groupId">
           <td class="groups">
             <group :group="group" />
           </td>

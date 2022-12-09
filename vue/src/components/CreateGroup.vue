@@ -2,7 +2,7 @@
   <form v-on:submit.prevent>
     <div class="field">
       <label for="Name">Please enter a group name:</label>
-      <input type="text" v-model="group.name" />
+      <input type="text" v-model="group.groupName" />
     </div>
     <div class="actions">
       <button
@@ -24,14 +24,14 @@ export default {
   data() {
     return {
       group: {
-        id: "",
-        name: "",
+        groupId: "",
+        groupName: "",
       },
     };
   },
   methods: {
     saveGroup() {
-      const groupName = this.group.name;
+      const groupName = this.group.groupName;
       groupService.create(this.currentUsername, groupName).then((response) => {
         if (response.status === 201) {
           this.$router.push({ name: "home" });
