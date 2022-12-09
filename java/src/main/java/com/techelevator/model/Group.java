@@ -5,7 +5,7 @@ import java.util.List;
 public class Group {
     private int groupId;
     private String groupName;
-    //private List<String> members;
+    private List<String> members;
     //private List<List> groupList;
 
     public Group(int groupId, String groupName, List<String> members) {
