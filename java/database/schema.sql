@@ -52,7 +52,7 @@ NO MAXVALUE;
 CREATE TABLE lists(
 	list_id INT NOT NULL DEFAULT nextval('seq_list_id'),
 	list_name varchar(50) NOT NULL,
-	num_of_members INT NOT NULL,
+	num_of_items INT NOT NULL,
 	group_id INT NOT NULL,
 	
 	CONSTRAINT pk_list PRIMARY KEY (list_id),

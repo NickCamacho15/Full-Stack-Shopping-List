@@ -6,6 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddGroup from '../views/AddGroup.vue'
+import DisplayLists from '../views/DisplayLists'
+
 
 Vue.use(Router)
 
@@ -29,6 +31,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/lists/:groupName',
+      name: 'lists',
+      component: DisplayLists,
     },
     {
       path: '/addgroup',
