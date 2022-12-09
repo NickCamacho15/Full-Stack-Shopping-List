@@ -5,10 +5,12 @@
         <th class="header"></th>
       </thead>
       <tbody>
-        <tr class="body" v-for="group in setGroups" :key="group.group_id">
-          <td class="groups">
-            <group :group="group" />
-          </td>
+        <tr class="body" v-for="group in setGroups" :key="group.groupId">
+          <router-link class="group-cards" :to="{ name: 'lists' }"
+            ><td class="groups">
+              <group :group="group" />
+            </td>
+          </router-link>
         </tr>
       </tbody>
     </table>
@@ -47,10 +49,16 @@ export default {
 </script>
 
 <style scoped>
+.groups {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+}
 #groupTable {
   display: flex;
   justify-content: center;
-  margin: 200px;
+  margin: 100px;
 }
 
 .header {
@@ -59,8 +67,10 @@ export default {
 }
 .body {
   justify-content: center;
+  border: 20px;
 }
-.groups {
-  padding-bottom: 20px;
+
+.group-cards {
+  text-decoration: none;
 }
 </style>

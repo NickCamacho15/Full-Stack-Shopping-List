@@ -23,6 +23,11 @@ export default new Vuex.Store({
       group_name: "",
       admin_id: "",
     }],
+    lists: [{
+      list_id: "",
+      list_name: "",
+      num_of_items: "",
+    }],
     token: currentToken || '',
     user: currentUser || {}
   },
