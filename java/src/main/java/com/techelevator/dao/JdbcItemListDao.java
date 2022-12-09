@@ -35,11 +35,11 @@ public class JdbcItemListDao implements ItemListDao {
         return listOfItemLists;
     }
 
+    @Override
     public boolean createItemList(String listName, String groupName){
-        final String sql = "INSERT INTO lists(\n" +
-                "\tlist_name, num_of_items, group_id)\n" +
-                "\tVALUES (?, 0, (select group_id FROM groups WHERE group_name = ?))\n" +
-                "\tRETURNING list_id;";
+        final String sql = "INSERT INTO lists(list_name, num_of_items, group_id)\n" +
+                "VALUES (?, 0, (SELECT group_id FROM groups WHERE group_name = ?))\n" +
+                "RETURNING list_id;";
 
         try {
             Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listName, groupName);

@@ -6,7 +6,7 @@
       alt="background image"
     />
     <div class="list-lists">
-      <h1 class="lists-list-title">This groups lists</h1>
+      <h1 class="lists-list-title">Lists for this group</h1>
       <router-link
         tag="button"
         class="open-create-form"
