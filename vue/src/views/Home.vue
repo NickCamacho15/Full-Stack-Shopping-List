@@ -58,20 +58,22 @@ export default {
   height: auto;
 }
 .open-create-form {
+  /* justify-content: center; */
   margin: 0 auto;
   width: 50%;
   background: #fff;
   font-size: 14px;
   margin-top: 30px;
   padding: 16px 20px;
-  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
-  text-align: justify;
+  /* text-align: justify; */
   font-weight: 700;
-  display: flex;
   align-items: center;
-  width: 100%;
+  width: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
   color: black;
   box-shadow: 0px 2px 2px black;
   cursor: pointer;
