@@ -1,19 +1,21 @@
 <template>
-  <form v-on:submit.prevent>
-    <div class="field">
-      <label for="Name">Please enter a group name:</label>
-      <input type="text" v-model="group.name" />
-    </div>
-    <div class="actions">
-      <button
-        class="create-group"
-        type="submit"
-        v-on:click.prevent="saveGroup()"
-      >
-        Create group
-      </button>
-    </div>
-  </form>
+  <div class="create-form">
+    <form v-on:submit.prevent>
+      <div class="field">
+        <label for="Name">Please enter a group name:</label>
+        <input type="text" v-model="group.groupName" />
+      </div>
+      <div class="actions">
+        <button
+          class="create-group"
+          type="submit"
+          v-on:click.prevent="saveGroup()"
+        >
+          Create group
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -24,14 +26,14 @@ export default {
   data() {
     return {
       group: {
-        id: "",
-        name: "",
+        groupId: "",
+        groupName: "",
       },
     };
   },
   methods: {
     saveGroup() {
-      const groupName = this.group.name;
+      const groupName = this.group.groupName;
       groupService.create(this.currentUsername, groupName).then((response) => {
         if (response.status === 201) {
           this.$router.push({ name: "home" });

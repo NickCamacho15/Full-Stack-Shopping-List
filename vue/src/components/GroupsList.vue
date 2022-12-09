@@ -5,7 +5,7 @@
         <th class="header"></th>
       </thead>
       <tbody>
-        <tr class="body" v-for="group in setGroups" :key="group.group_id">
+        <tr class="body" v-for="group in setGroups" :key="group.groupId">
           <td class="groups">
             <group :group="group" />
           </td>
@@ -47,10 +47,16 @@ export default {
 </script>
 
 <style scoped>
+.groups {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+}
 #groupTable {
   display: flex;
   justify-content: center;
-  margin: 200px;
+  margin: 100px;
 }
 
 .header {
@@ -59,8 +65,6 @@ export default {
 }
 .body {
   justify-content: center;
-}
-.groups {
-  padding-bottom: 20px;
+  border: 20px;
 }
 </style>
