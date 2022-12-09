@@ -4,7 +4,7 @@
       <div class="field">
         <h1 class="header">Create a group</h1>
         <label class="prompt" for="Name">Please enter a group name:</label>
-        <input type="text" v-model="group.groupName" />
+        <input type="text" class="form-control" v-model="group.groupName" />
       </div>
       <div class="actions">
         <button
@@ -99,5 +99,15 @@ export default {
 .create-group.hover {
   border-color: #6a679e;
   outline: none;
+}
+.form-control {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
 }
 </style>
