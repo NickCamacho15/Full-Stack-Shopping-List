@@ -32,6 +32,7 @@ export default {
 .create-form {
   background: linear-gradient(90deg, white, white);
   position: absolute;
+
   /* top: 0px;
   right: 0px;
   bottom: 0px;
@@ -45,5 +46,13 @@ export default {
   /**/
   height: 600px;
   /* box-shadow: 0px 0px 24px #5c5696; */
+}
+.create {
+  padding-top: 100px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 </style>
