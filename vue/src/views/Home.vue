@@ -17,3 +17,5 @@ export default {
   components: { GroupsList },
 };
 </script>
+<style scoped>
+</style>
