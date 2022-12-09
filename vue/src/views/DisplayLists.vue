@@ -60,6 +60,7 @@ export default {
   height: auto;
 }
 .open-create-form {
+  justify-content: center;
   margin: 0 auto;
   width: 50%;
   background: #fff;
