@@ -1,19 +1,21 @@
 <template>
-  <form v-on:submit.prevent>
-    <div class="field">
-      <label for="Name">Please enter a group name:</label>
-      <input type="text" v-model="group.groupName" />
-    </div>
-    <div class="actions">
-      <button
-        class="create-group"
-        type="submit"
-        v-on:click.prevent="saveGroup()"
-      >
-        Create group
-      </button>
-    </div>
-  </form>
+  <div class="create-form">
+    <form v-on:submit.prevent>
+      <div class="field">
+        <label for="Name">Please enter a group name:</label>
+        <input type="text" v-model="group.groupName" />
+      </div>
+      <div class="actions">
+        <button
+          class="create-group"
+          type="submit"
+          v-on:click.prevent="saveGroup()"
+        >
+          Create group
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
