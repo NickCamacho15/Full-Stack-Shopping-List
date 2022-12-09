@@ -6,9 +6,11 @@
       </thead>
       <tbody>
         <tr class="body" v-for="group in setGroups" :key="group.groupId">
-          <td class="groups">
-            <group :group="group" />
-          </td>
+          <router-link class="group-cards" :to="{ name: 'lists' }"
+            ><td class="groups">
+              <group :group="group" />
+            </td>
+          </router-link>
         </tr>
       </tbody>
     </table>
@@ -66,5 +68,9 @@ export default {
 .body {
   justify-content: center;
   border: 20px;
+}
+
+.group-cards {
+  text-decoration: none;
 }
 </style>
