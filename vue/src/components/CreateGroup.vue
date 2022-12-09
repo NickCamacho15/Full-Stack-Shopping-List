@@ -5,7 +5,11 @@
       <input type="text" v-model="group.name" />
     </div>
     <div class="actions">
-      <button type="submit" v-on:click.prevent="saveGroup()">
+      <button
+        class="create-group"
+        type="submit"
+        v-on:click.prevent="saveGroup()"
+      >
         Create group
       </button>
     </div>
@@ -20,7 +24,7 @@ export default {
   data() {
     return {
       group: {
-        id: Math.floor(Math.random() * (1000 - 100) + 100),
+        id: "",
         name: "",
       },
     };
@@ -44,4 +48,15 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+.field {
+  padding-top: 250px;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+.actions {
+  align-items: center;
+  text-align: center;
+}
 </style>

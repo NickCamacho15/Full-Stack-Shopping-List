@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS group_member,groups,users;
+DROP TABLE IF EXISTS lists,group_member,groups,users;
 
-DROP SEQUENCE IF EXISTS seq_group_id, seq_user_id;
+DROP SEQUENCE IF EXISTS seq_list_id,seq_group_id, seq_user_id;
 
 CREATE SEQUENCE seq_user_id
 INCREMENT BY 1
@@ -25,6 +25,7 @@ NO MAXVALUE;
 CREATE TABLE groups (
 	group_id int NOT NULL DEFAULT nextval ('seq_group_id'),
 	group_name varchar(50) NOT NULL,
+	create_date date NOT NULL default NOW(),
 	admin_id int,
 	
 	CONSTRAINT pk_group PRIMARY KEY (group_id),
@@ -39,6 +40,24 @@ CREATE TABLE group_member(
 CONSTRAINT pk_group_member PRIMARY KEY (user_id, group_id)
 	,CONSTRAINT fk_member_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 	,CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES groups(group_id)
+);
+
+
+CREATE SEQUENCE seq_list_id
+INCREMENT BY 1
+START WITH 3001
+NO MAXVALUE;
+
+
+CREATE TABLE lists(
+	list_id INT NOT NULL DEFAULT nextval('seq_list_id'),
+	list_name varchar(50) NOT NULL,
+	num_of_members INT NOT NULL,
+	group_id INT NOT NULL,
+	
+	CONSTRAINT pk_list PRIMARY KEY (list_id),
+	CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES groups(group_id)
+	
 );
 
 COMMIT TRANSACTION;
