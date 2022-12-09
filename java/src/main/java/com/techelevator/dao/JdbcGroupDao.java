@@ -20,7 +20,7 @@ public class JdbcGroupDao implements GroupDao {
 
     @Override
     public List<Group> getGroups(String username) {
-        final String sql = "SELECT g.group_id, g.group_name \n" +
+        final String sql = "SELECT g.group_id, g.group_name, g.create_date \n" +
                 "FROM groups g\n" +
                 "JOIN group_member as gm ON g.group_id = gm.group_id\n" +
                 "JOIN users as u ON gm.user_id = u.user_id\n" +
@@ -43,6 +43,7 @@ public class JdbcGroupDao implements GroupDao {
         final String sql2 = "INSERT INTO group_member(user_id, group_id)\n" +
                 "VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
 
+
         try {
 
             newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, username, groupName);
@@ -63,6 +64,7 @@ public class JdbcGroupDao implements GroupDao {
         Group group = new Group();
         group.setGroupId(sqlRowSet.getInt("group_id"));
         group.setGroupName(sqlRowSet.getString("group_name"));
+        group.setCreateDate(sqlRowSet.getDate("create_date").toLocalDate());
         return group;
 
     }

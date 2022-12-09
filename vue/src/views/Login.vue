@@ -23,11 +23,11 @@
 
       <label for="username" class="sr-only"></label>
       <div class="login__field">
-        <link
+        <!-- <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway:400,700"
         />
-        <i class="login__icon fa fa-user"></i>
+        <i class="login__icon fa fa-user"></i> -->
         <input
           type="text"
           id="username"

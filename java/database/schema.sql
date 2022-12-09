@@ -25,6 +25,7 @@ NO MAXVALUE;
 CREATE TABLE groups (
 	group_id int NOT NULL DEFAULT nextval ('seq_group_id'),
 	group_name varchar(50) NOT NULL,
+	create_date timestamp NOT NULL default NOW(),
 	admin_id int,
 	
 	CONSTRAINT pk_group PRIMARY KEY (group_id),
