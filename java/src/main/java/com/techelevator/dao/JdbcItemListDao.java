@@ -1,12 +1,14 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.ItemList;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcItemListDao implements ItemListDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -30,7 +32,20 @@ public class JdbcItemListDao implements ItemListDao {
             listOfItemLists.add(itemList);
         }
         return listOfItemLists;
+    }
 
+    public boolean createItemList(String listName, String groupName){
+        final String sql = "INSERT INTO lists(\n" +
+                "\tlist_name, num_of_items, group_id)\n" +
+                "\tVALUES (?, 0, (select group_id FROM groups WHERE group_name = ?))\n" +
+                "\tRETURNING list_id;";
+
+        try {
+            Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listName, groupName);
+        } catch (DataAccessException e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
     }
 
     private ItemList mapRowToLists(SqlRowSet sqlRowSet) {
