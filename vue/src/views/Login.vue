@@ -171,6 +171,7 @@ body #login {
   width: 50%;
 }
 .sign-in-and-registration-buttons {
+  justify-content: center;
   background: #fff;
   font-size: 14px;
   margin-top: 30px;

@@ -13,6 +13,10 @@ export default {
 </script>
 
 <style>
+.group {
+  align-content: center;
+  margin: 25px;
+}
 .date {
   font-size: 12px;
   padding-top: 10px;

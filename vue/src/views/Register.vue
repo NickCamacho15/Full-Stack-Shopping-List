@@ -212,6 +212,7 @@ h1 {
 }
 
 .create-and-have-an-account-buttons {
+  justify-content: center;
   background: #fff;
   font-size: 14px;
   margin-top: 30px;
