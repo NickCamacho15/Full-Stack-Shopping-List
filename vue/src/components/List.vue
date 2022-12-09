@@ -1,0 +1,16 @@
+<template>
+  <div class="lists">
+    <h1 class="list-names">{{ list.listName }}</h1>
+    <h2>{{ list.numOfItems }}</h2>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "list-card",
+  props: ["list"],
+};
+</script>
+
+<style>
+</style>

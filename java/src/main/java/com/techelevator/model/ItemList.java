@@ -1,23 +1,23 @@
 package com.techelevator.model;
 
-public class List<S> {
+public class ItemList<S> {
 
     private int listId;
     private String listName;
     private int numOfItems;
 
-    public List(int listId, String listName, int numOfItems) {
+    public ItemList(int listId, String listName, int numOfItems) {
         this.listId = listId;
         this.listName = listName;
         this.numOfItems = numOfItems;
     }
 
-    public List(int listId, String listName) {
+    public ItemList(int listId, String listName) {
         this.listId = listId;
         this.listName = listName;
     }
 
-    public List() {
+    public ItemList() {
 
     }
 
