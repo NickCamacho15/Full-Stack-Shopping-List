@@ -30,7 +30,7 @@ export default {
       return this.$store.state.lists;
     },
     currentGroupName() {
-      return this.$store.state.groups.group_name;
+      return this.$store.state.groups.groupName;
     },
   },
   methods: {

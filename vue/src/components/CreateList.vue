@@ -23,28 +23,35 @@ import listService from "../services/ListService.js";
 
 export default {
   name: "create-list",
+  props: ["groupId"],
   data() {
     return {
       list: {
         listId: "",
         listName: "",
         numOfItems: "",
+        groupId: this.groupId,
       },
     };
   },
   methods: {
     saveList() {
       const listName = this.list.listName;
-      listService.createNewList(this.groupName, listName).then((response) => {
-        if (response.status === 201) {
-          this.$router.push({ name: "lists" });
-        }
-      });
+      listService
+        .createNewList(this.currentGroup, listName)
+        .then((response) => {
+          if (response.status === 201) {
+            this.$router.push({
+              name: "lists",
+              params: { listId: this.list.groupId },
+            });
+          }
+        });
     },
   },
   computed: {
-    currentGroupName() {
-      return this.$store.state.group.groupName;
+    currentGroup() {
+      return this.$store.state.lists.groupId;
     },
   },
 };

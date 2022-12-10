@@ -28,6 +28,7 @@ export default new Vuex.Store({
       list_id: "",
       list_name: "",
       num_of_items: "",
+      group_id: "",
     }],
     token: currentToken || '',
     user: currentUser || {}
@@ -50,7 +51,7 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_GROUPS(state, groups) { state.groups = groups; },
-    SET_LISTS(state, lists) { state.lists = lists }
+    SET_LISTS(state, lists) { state.lists = lists },
 
   }
 })
