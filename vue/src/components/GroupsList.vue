@@ -6,7 +6,9 @@
       </thead>
       <tbody>
         <tr class="body" v-for="group in setGroups" :key="group.groupId">
-          <router-link class="group-cards" :to="{ name: 'lists' }"
+          <router-link
+            class="group-cards"
+            :to="{ name: 'lists', params: { groupId: group.groupId } }"
             ><td class="groups">
               <group :group="group" style="padding-top: 15px" />
             </td>

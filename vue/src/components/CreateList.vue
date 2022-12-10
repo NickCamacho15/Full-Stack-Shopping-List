@@ -30,7 +30,7 @@ export default {
         listId: "",
         listName: "",
         numOfItems: "",
-        groupId: this.groupId,
+        groupId: "",
       },
     };
   },
@@ -38,12 +38,12 @@ export default {
     saveList() {
       const listName = this.list.listName;
       listService
-        .createNewList(this.currentGroup, listName)
+        .createNewList(this.$store.state.groupId, listName)
         .then((response) => {
           if (response.status === 201) {
             this.$router.push({
               name: "lists",
-              params: { listId: this.list.groupId },
+              params: { groupId: this.list.groupId },
             });
           }
         });
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     currentGroup() {
-      return this.$store.state.lists.groupId;
+      return this.list.groupId;
     },
   },
 };
