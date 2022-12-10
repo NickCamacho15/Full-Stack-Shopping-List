@@ -56,6 +56,19 @@ public class JdbcGroupDao implements GroupDao {
         return true;
     }
 
+    public boolean addUserToGroup(int userId, int groupId) {
+        final String sql = "INSERT INTO group_member (group_id, user_id)\n" +
+                "VALUES (?, ?);";
+        try {
+            this.jdbcTemplate.update(sql, groupId, userId);
+            return true;
+        }catch (DataAccessException e)
+        {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
     // public List<User> getMembersByGroup
 //    List<String> memberList = new ArrayList<>();
 //    memberList.add(sqlRowSet.getString("username"));

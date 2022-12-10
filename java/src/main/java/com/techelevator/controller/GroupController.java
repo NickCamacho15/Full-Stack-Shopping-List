@@ -28,4 +28,12 @@ public class GroupController {
     public boolean create(@RequestParam String username, @RequestParam String groupName){
         return this.groupDao.createGroup(username, groupName);
     }
+    
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PutMapping("/groups/{groupId}/adduser/{userId}")
+    public boolean update(@PathVariable int groupId, @PathVariable int userId){
+        return this.groupDao.addUserToGroup(userId, groupId);
+    }
+
+
 }
