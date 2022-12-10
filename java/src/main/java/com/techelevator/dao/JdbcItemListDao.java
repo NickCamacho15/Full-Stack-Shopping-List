@@ -19,14 +19,14 @@ public class JdbcItemListDao implements ItemListDao {
     }
 
     @Override
-    public List<ItemList> getListsByGroup(String groupName) {
+    public List<ItemList> getListsByGroup(int groupId) {
        final String sql = "SELECT l.list_id, l.list_name, l.num_of_items\n" +
                "\tFROM lists l\n" +
                "\tJOIN groups as g ON l.group_id = g.group_id\n" +
-               "\tWHERE group_name = ?\n" +
+               "\tWHERE g.group_id = ?\n" +
                "\tORDER BY list_name;";
 
-        final SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, groupName);
+        final SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, groupId);
         List<ItemList> listOfItemLists = new ArrayList<>();
         while (results.next()) {
             ItemList itemList = mapRowToLists(results);
@@ -35,14 +35,14 @@ public class JdbcItemListDao implements ItemListDao {
         return listOfItemLists;
     }
 
-    public boolean createItemList(String listName, String groupName){
-        final String sql = "INSERT INTO lists(\n" +
-                "\tlist_name, num_of_items, group_id)\n" +
-                "\tVALUES (?, 0, (select group_id FROM groups WHERE group_name = ?))\n" +
-                "\tRETURNING list_id;";
+    @Override
+    public boolean createItemList(String listName, int groupId){
+        final String sql = "INSERT INTO lists(list_name, num_of_items, group_id)\n" +
+                "VALUES (?, 0, ?)\n" +
+                "RETURNING list_id;";
 
         try {
-            Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listName, groupName);
+            Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listName, groupId);
         } catch (DataAccessException e) {
             System.out.println(e.getMessage());
         }
@@ -54,6 +54,7 @@ public class JdbcItemListDao implements ItemListDao {
        itemList.setListId(sqlRowSet.getInt("list_id"));
        itemList.setListName(sqlRowSet.getString("list_name"));
        itemList.setNumOfItems(sqlRowSet.getInt("num_of_items"));
+       itemList.setGroupId(sqlRowSet.getInt("group_id"));
         return itemList;
     }
 }

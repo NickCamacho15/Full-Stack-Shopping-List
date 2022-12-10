@@ -3,7 +3,12 @@ import axios from 'axios';
 
 
 export default {
-    getListsByGroup(groupName) {
-        return axios.get(`/lists/${groupName}`)
-    }
+    getListsByGroup(groupId) {
+        return axios.get(`/lists/${groupId}`)
+    },
+
+    createNewList(groupId, listName) {
+        return axios.post(`/lists/${groupId}/addlist?listName=${listName}`);
+    },
+
 }

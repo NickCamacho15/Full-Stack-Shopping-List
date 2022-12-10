@@ -18,6 +18,12 @@ if (currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    activeGroup: {
+      groupId: 0,
+      groupName: "",
+      lists: [],
+    }
+    ,
     groups: [{
       group_id: "",
       group_name: "",
@@ -27,9 +33,10 @@ export default new Vuex.Store({
       list_id: "",
       list_name: "",
       num_of_items: "",
+      groupId: "",
     }],
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,6 +48,9 @@ export default new Vuex.Store({
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user));
     },
+    SET_ACTIVE_GROUP(state, data) {
+      state.activeGroup = data;
+    },
     LOGOUT(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
@@ -48,7 +58,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_GROUPS(state, groups) { state.groups = groups; }
+    SET_GROUPS(state, groups) { state.groups = groups; },
+    SET_LISTS(state, lists) { state.lists = lists },
 
   }
 })

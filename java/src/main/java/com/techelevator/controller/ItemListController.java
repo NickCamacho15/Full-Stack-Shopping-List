@@ -3,11 +3,9 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ItemListDao;
 import com.techelevator.model.ItemList;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,10 +20,17 @@ public class ItemListController {
     }
 
 
-    @GetMapping("/lists/{group_name}")
-        public List<ItemList> getListsByGroupName(@RequestParam String groupName){
-            return this.itemListDao.getListsByGroup(groupName);
+    @GetMapping("/lists/{groupId}")
+        public List<ItemList> getListsByGroupName(@PathVariable int groupId){
+            return this.itemListDao.getListsByGroup(groupId);
         }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/lists/{groupId}/addlist")
+    public boolean createNewList(@PathVariable int groupId, @RequestParam String listName){
+        return this.itemListDao.createItemList(listName, groupId);
+    }
+
 
 
 

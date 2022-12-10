@@ -5,6 +5,7 @@ public class ItemList<S> {
     private int listId;
     private String listName;
     private int numOfItems;
+    private int groupId;
 
     public ItemList(int listId, String listName, int numOfItems) {
         this.listId = listId;
@@ -43,5 +44,13 @@ public class ItemList<S> {
 
     public void setNumOfItems(int numOfItems) {
         this.numOfItems = numOfItems;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 }
