@@ -217,7 +217,6 @@ h1 {
   font-size: 14px;
   margin-top: 30px;
   padding: 16px 20px;
-  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
