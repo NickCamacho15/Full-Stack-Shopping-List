@@ -18,6 +18,7 @@ if (currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    currentGroup: "",
     groups: [{
       group_id: "",
       group_name: "",
@@ -48,7 +49,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_GROUPS(state, groups) { state.groups = groups; }
+    SET_GROUPS(state, groups) { state.groups = groups; },
+    SET_LISTS(state, lists) { state.lists = lists }
 
   }
 })

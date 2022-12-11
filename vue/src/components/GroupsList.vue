@@ -8,7 +8,7 @@
         <tr class="body" v-for="group in setGroups" :key="group.groupId">
           <router-link class="group-cards" :to="{ name: 'lists' }"
             ><td class="groups">
-              <group :group="group" />
+              <group :group="group" style="padding-top: 15px" />
             </td>
           </router-link>
         </tr>
