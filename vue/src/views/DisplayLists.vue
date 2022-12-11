@@ -10,10 +10,10 @@
       <router-link
         tag="button"
         class="open-create-form"
-        :to="{ name: 'AddList' }"
+        :to="{ name: 'AddList', params: { groupId: currentGroup } }"
         >Add a list to this group</router-link
       >
-      <list-of-lists></list-of-lists>
+      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
     </div>
   </div>
 </template>
@@ -24,6 +24,11 @@ import ListOfLists from "../components/ListOfLists.vue";
 export default {
   components: {
     ListOfLists,
+  },
+  computed: {
+    currentGroup() {
+      return this.$route.params.groupId;
+    },
   },
 };
 </script>

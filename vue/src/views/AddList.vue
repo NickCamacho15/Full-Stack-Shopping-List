@@ -7,7 +7,7 @@
     />
 
     <h1>Create new list</h1>
-    <create-list />
+    <create-list v-bind:groupId="currentGroup" />
   </div>
 </template>
 
@@ -15,6 +15,11 @@
 import CreateList from "../components/CreateList.vue";
 export default {
   components: { CreateList },
+  computed: {
+    currentGroup() {
+      return this.$route.params.groupId;
+    },
+  },
 };
 </script>
 

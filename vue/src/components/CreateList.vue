@@ -37,16 +37,14 @@ export default {
   methods: {
     saveList() {
       const listName = this.list.listName;
-      listService
-        .createNewList(this.$store.state.groupId, listName)
-        .then((response) => {
-          if (response.status === 201) {
-            this.$router.push({
-              name: "lists",
-              params: { groupId: this.list.groupId },
-            });
-          }
-        });
+      listService.createNewList(this.groupId, listName).then((response) => {
+        if (response.status === 201) {
+          this.$router.push({
+            name: "lists",
+            params: { groupId: this.groupId },
+          });
+        }
+      });
     },
   },
   computed: {

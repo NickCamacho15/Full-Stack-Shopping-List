@@ -40,11 +40,9 @@ export default {
   },
   methods: {
     listLists() {
-      ListService.getListsByGroup(this.$route.params.groupId).then(
-        (response) => {
-          this.$store.commit("SET_LISTS", response.data);
-        }
-      );
+      ListService.getListsByGroup(this.groupId).then((response) => {
+        this.$store.commit("SET_LISTS", response.data);
+      });
     },
   },
   created() {

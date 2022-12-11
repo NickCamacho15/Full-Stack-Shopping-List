@@ -39,7 +39,7 @@ const router = new Router({
       component: DisplayLists,
     },
     {
-      path: '/lists/:groupId/addlist',
+      path: '/groups/:groupId/addlist',
       name: 'AddList',
       component: AddList
     },
