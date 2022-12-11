@@ -20,15 +20,15 @@ public class ItemListController {
     }
 
 
-    @GetMapping("/lists/{groupName}")
-        public List<ItemList> getListsByGroupName(@PathVariable String groupName){
-            return this.itemListDao.getListsByGroup(groupName);
+    @GetMapping("/lists/{groupId}")
+        public List<ItemList> getListsByGroupName(@PathVariable int groupId){
+            return this.itemListDao.getListsByGroup(groupId);
         }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/lists/{groupName}/addlist")
-    public boolean createNewList(@PathVariable String groupName, @RequestParam String listName){
-        return this.itemListDao.createItemList(listName, groupName);
+    @PostMapping("/lists/{groupId}/addlist")
+    public boolean createNewList(@PathVariable int groupId, @RequestParam String listName){
+        return this.itemListDao.createItemList(listName, groupId);
     }
 
 

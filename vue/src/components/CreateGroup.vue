@@ -52,12 +52,10 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
-
 .header {
   padding-bottom: 200px;
   font-size: 30px;
 }
-
 .field {
   padding-top: 25px;
   align-items: center;
@@ -73,7 +71,6 @@ export default {
   justify-content: center;
   align-content: center;
 }
-
 .create-group {
   justify-content: center;
   margin-right: auto;

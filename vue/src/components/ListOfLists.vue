@@ -5,7 +5,11 @@
         <th class="header"></th>
       </thead>
       <tbody>
-        <tr class="body" v-for="list in setLists" :key="list.list_id">
+        <tr
+          class="body"
+          v-for="list in this.$store.state.lists"
+          :key="list.list_id"
+        >
           <td class="lists">
             <list :list="list" />
           </td>
@@ -21,6 +25,7 @@ import ListService from "../services/ListService.js";
 
 export default {
   name: "lists-list",
+  props: ["groupId"],
   components: { List },
   data() {
     return {};
@@ -29,13 +34,13 @@ export default {
     setLists() {
       return this.$store.state.lists;
     },
-    currentGroupName() {
-      return this.$store.state.groups.group_name;
+    currentGroupId() {
+      return this.$store.state.lists.groupId;
     },
   },
   methods: {
     listLists() {
-      ListService.getListsByGroup(this.currentGroupName).then((response) => {
+      ListService.getListsByGroup(this.groupId).then((response) => {
         this.$store.commit("SET_LISTS", response.data);
       });
     },

@@ -1,7 +1,6 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Group;
-import com.techelevator.model.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -43,17 +42,28 @@ public class JdbcGroupDao implements GroupDao {
         final String sql2 = "INSERT INTO group_member(user_id, group_id)\n" +
                 "VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
 
-
         try {
-
             newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, username, groupName);
             jdbcTemplate.update(sql2, username, newGroupId);
+            return true;
 
         } catch (DataAccessException e) {
             System.out.println(e.getMessage());
+            return false;
         }
 
-        return true;
+    }
+
+    public boolean addUserToGroup(int userId, int groupId) {
+        final String sql = "INSERT INTO group_member (group_id, user_id)\n" +
+                "VALUES (?, ?);";
+        try {
+            this.jdbcTemplate.update(sql, groupId, userId);
+            return true;
+        } catch (DataAccessException e) {
+            System.out.println("Failed to update due to an exception." + e.getMessage());
+            return false;
+        }
     }
 
     // public List<User> getMembersByGroup

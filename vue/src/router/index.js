@@ -34,12 +34,12 @@ const router = new Router({
       }
     },
     {
-      path: '/lists/:groupName',
+      path: '/lists/:groupId',
       name: 'lists',
       component: DisplayLists,
     },
     {
-      path: '/lists/:groupName/addlist',
+      path: '/groups/:groupId/addlist',
       name: 'AddList',
       component: AddList
     },
