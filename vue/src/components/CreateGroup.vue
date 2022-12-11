@@ -81,7 +81,7 @@ export default {
   padding: 16px 20px;
   /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
-  text-transform: uppercase;
+  text-transform: upp ercase;
   font-weight: 700;
   position: relative;
   align-items: center;
