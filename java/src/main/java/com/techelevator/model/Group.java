@@ -3,6 +3,7 @@ package com.techelevator.model;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 public class Group {
     private int groupId;
@@ -10,15 +11,20 @@ public class Group {
     //private List<String> members;
     //private List<List> groupList;
     private LocalDate createDate;
+    private String groupCode;
 
     public Group(int groupId, String groupName) {
         this.groupId = groupId;
         this.groupName = groupName;
+        this.groupCode = groupCode;
     }
 
 
-    public Group() {
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
+    }
 
+    public Group() {
     }
 
     public LocalDate getCreateDate() {
@@ -44,5 +50,12 @@ public class Group {
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
+
+    public String getGroupCode() {
+        return groupCode;
+    }
+
+
+
 
 }
