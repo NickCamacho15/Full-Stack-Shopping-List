@@ -23,10 +23,16 @@ public class ItemController {
         return this.itemDao.getItemsByListId(listId);
     }
 
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @PostMapping("/items/{listId}/additem")
+//    public boolean createNewItem(@PathVariable int listId, @RequestParam String itemName, @RequestParam int quantity, @RequestParam int userId){
+//        return this.itemDao.addItem(listId,itemName,quantity, userId);
+//    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/items/{listId}/additem")
-    public boolean createNewItem(@PathVariable int listId, @RequestParam String itemName, @RequestParam int quantity){
-        return this.itemDao.addItem(listId,itemName,quantity);
+    public boolean createNewItem(@PathVariable int listId, @RequestBody Item item) {
+        return this.itemDao.addItem(listId, item.getItemName(), item.getQuantity(), item.getUserId());
     }
 
 }

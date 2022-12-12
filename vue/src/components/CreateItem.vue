@@ -39,6 +39,7 @@ export default {
         itemName: "",
         quantity: 0,
         listId: this.listId,
+        userId: 0,
       },
     };
   },
@@ -46,23 +47,25 @@ export default {
     saveItem() {
       //   const itemName = this.item.itemName;
       //   const quantity = this.item.quantity;
-      ItemService.createNewItem(
-        this.listId,
-        this.item.itemName,
-        this.item.quantity
-      ).then((response) => {
-        if (response.status === 201) {
-          this.$router.push({
-            name: "items",
-            params: { listId: this.listId },
-          });
+      this.item.userId = this.currentUserId;
+      ItemService.createNewItem(this.item.listId, this.item).then(
+        (response) => {
+          if (response.status === 201) {
+            this.$router.push({
+              name: "items",
+              params: { listId: this.item.listId },
+            });
+          }
         }
-      });
+      );
     },
   },
   computed: {
     currentList() {
       return this.item.listId;
+    },
+    currentUserId() {
+      return this.$store.state.user.id;
     },
   },
 };

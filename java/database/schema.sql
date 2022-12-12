@@ -14,6 +14,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
@@ -72,9 +73,13 @@ item_id INT NOT NULL DEFAULT nextval ('seq_item_id'),
 	item_name varchar(50) NOT NULL, 
 	quantity INT NOT NULL,
 	list_id INT NOT NULL,
+	user_id INT NOT NULL,
+	date_added date NOT NULL default NOW(),
+	
 	
 	CONSTRAINT pk_items PRIMARY KEY (item_id),
-	CONSTRAINT fk_items_id FOREIGN KEY (list_id) REFERENCES lists (list_id)
+	CONSTRAINT fk_items_id FOREIGN KEY (list_id) REFERENCES lists(list_id),
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 COMMIT TRANSACTION;
