@@ -10,9 +10,14 @@
           v-for="list in this.$store.state.lists"
           :key="list.list_id"
         >
-          <td class="lists">
-            <list :list="list" />
-          </td>
+          <router-link
+            class="list-cards"
+            :to="{ name: 'items', params: { listId: list.listId } }"
+          >
+            <td class="lists">
+              <list :list="list" />
+            </td>
+          </router-link>
         </tr>
       </tbody>
     </table>
@@ -40,11 +45,9 @@ export default {
   },
   methods: {
     listLists() {
-      ListService.getListsByGroup(this.$route.params.groupId).then(
-        (response) => {
-          this.$store.commit("SET_LISTS", response.data);
-        }
-      );
+      ListService.getListsByGroup(this.groupId).then((response) => {
+        this.$store.commit("SET_LISTS", response.data);
+      });
     },
   },
   created() {

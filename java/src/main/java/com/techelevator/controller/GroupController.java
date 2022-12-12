@@ -35,5 +35,4 @@ public class GroupController {
     public boolean update(@PathVariable int groupId, @PathVariable int userId){
         return this.groupDao.addUserToGroup(userId, groupId);
     }
-
 }

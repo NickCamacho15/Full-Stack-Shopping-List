@@ -20,7 +20,7 @@ public class JdbcItemListDao implements ItemListDao {
 
     @Override
     public List<ItemList> getListsByGroup(int groupId) {
-       final String sql = "SELECT l.list_id, l.list_name, l.num_of_items\n" +
+       final String sql = "SELECT l.list_id, l.list_name, l.num_of_items, g.group_id\n" +
                "\tFROM lists l\n" +
                "\tJOIN groups as g ON l.group_id = g.group_id\n" +
                "\tWHERE g.group_id = ?\n" +
