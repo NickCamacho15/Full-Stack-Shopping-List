@@ -10,4 +10,5 @@ public interface GroupDao {
     boolean addUserToGroup(int userId, int groupId);
     String generateGroupCode();
     String getCodeByGroupName(String groupName);
+    boolean 
 }

@@ -69,6 +69,7 @@ public class JdbcGroupDao implements GroupDao {
         return inviteCode;
     }
 
+
     public boolean addUserToGroup(int userId, int groupId) {
         final String sql = "INSERT INTO group_member (group_id, user_id)\n" +
                 "VALUES (?, ?);";
@@ -93,6 +94,7 @@ public class JdbcGroupDao implements GroupDao {
         }
 
     }
+
 
     // public List<User> getMembersByGroup
 //    List<String> memberList = new ArrayList<>();
