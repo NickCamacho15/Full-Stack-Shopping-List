@@ -31,4 +31,7 @@ export default {
 </script>
 
 <style scoped>
+.image1 {
+  z-index: -1;
+}
 </style>
