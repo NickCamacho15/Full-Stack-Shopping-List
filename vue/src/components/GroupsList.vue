@@ -36,6 +36,9 @@ export default {
     currentUsername() {
       return this.$store.state.user.username;
     },
+    displayInviteCode() {
+      return this.$store.state.groups.group_code;
+    },
   },
   methods: {
     listGroup() {

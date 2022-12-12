@@ -27,7 +27,11 @@ CREATE TABLE groups (
 	group_name varchar(50) NOT NULL,
 	create_date date NOT NULL default NOW(),
 	admin_id int,
+<<<<<<< HEAD
+	group_code varchar(5) NOT NULL default 'XXXXX',
+=======
 -- 	group_code varchar(5) NOT NULL default 'XXXXX',
+>>>>>>> main
 	
 	CONSTRAINT pk_group PRIMARY KEY (group_id),
 	CONSTRAINT fk_admin_id FOREIGN KEY (admin_id) REFERENCES users(user_id) 

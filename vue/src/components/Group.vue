@@ -2,6 +2,7 @@
   <div class="group">
     <h1 class="group-name">{{ group.groupName }}</h1>
     <h2 class="date">created on: {{ group.createDate }}</h2>
+    <h2 class="invite">Invite Code: <strong>{{ group.groupCode }}</strong></h2>
   </div>
 </template>
 
