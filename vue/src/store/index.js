@@ -22,8 +22,13 @@ export default new Vuex.Store({
       groupId: 0,
       groupName: "",
       lists: [],
-    }
-    ,
+    },
+    items: [{
+      itemId: "",
+      itemName: "",
+      quantity: 0,
+      listId: ""
+    }],
     groups: [{
       group_id: "",
       group_name: "",
@@ -61,6 +66,8 @@ export default new Vuex.Store({
     },
     SET_GROUPS(state, groups) { state.groups = groups; },
     SET_LISTS(state, lists) { state.lists = lists },
-
+    SET_ITEMS(state, items) {
+      state.items = items
+    }
   }
 })

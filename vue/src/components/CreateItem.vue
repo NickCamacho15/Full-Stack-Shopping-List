@@ -1,17 +1,25 @@
 <template>
-  <div class="create-list-form">
+  <div class="create-item-form">
     <form class="content" v-on:submit.prevent>
       <div class="field">
-        <label class="header" for="Name">Please enter a list name:</label>
-        <input type="text" class="form-control" v-model="list.listName" />
+        <label class="header" for="Name">Please enter item name:</label>
+        <input type="text" class="form-control" v-model="item.itemName" />
+        <label class="quantity" for="Quantity"
+          >Please enter item quantity:</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          v-model.number="item.quantity"
+        />
       </div>
       <div class="actions">
         <button
-          class="create-list"
+          class="create-item"
           type="submit"
-          v-on:click.prevent="saveList()"
+          v-on:click.prevent="saveItem()"
         >
-          Create list
+          Add Item
         </button>
       </div>
     </form>
@@ -19,37 +27,42 @@
 </template>
 
 <script>
-import listService from "../services/ListService.js";
+import ItemService from "../services/ItemService.js";
 
 export default {
-  name: "create-list",
-  props: ["groupId"],
+  name: "create-item",
+  props: ["listId"],
   data() {
     return {
-      list: {
-        listId: "",
-        listName: "",
-        numOfItems: "",
-        groupId: "",
+      item: {
+        itemId: "",
+        itemName: "",
+        quantity: 0,
+        listId: this.listId,
       },
     };
   },
   methods: {
-    saveList() {
-      const listName = this.list.listName;
-      listService.createNewList(this.groupId, listName).then((response) => {
+    saveItem() {
+      //   const itemName = this.item.itemName;
+      //   const quantity = this.item.quantity;
+      ItemService.createNewItem(
+        this.listId,
+        this.item.itemName,
+        this.item.quantity
+      ).then((response) => {
         if (response.status === 201) {
           this.$router.push({
-            name: "lists",
-            params: { groupId: this.groupId },
+            name: "items",
+            params: { listId: this.listId },
           });
         }
       });
     },
   },
   computed: {
-    currentGroup() {
-      return this.list.groupId;
+    currentList() {
+      return this.item.listId;
     },
   },
 };
@@ -78,7 +91,7 @@ export default {
   padding-bottom: 100px;
   font-size: 30px;
 }
-.create-list {
+.create-item {
   background: #fff;
   position: relative;
   justify-content: center;
@@ -98,9 +111,9 @@ export default {
   cursor: pointer;
   transition: 0.2s;
 }
-.create-list:active,
-.create-list:focus,
-.create-list.hover {
+.create-item:active,
+.create-item:focus,
+.create-item.hover {
   border-color: #6a679e;
   outline: none;
 }

@@ -2,7 +2,7 @@
   <div class="create-form">
     <form class="content" v-on:submit.prevent>
       <div class="field">
-        <h1 class="header">Create a group</h1>
+        <!-- <h1 class="header">Create a group</h1> -->
         <label class="prompt" for="Name">Please enter a group name:</label>
         <input type="text" class="form-control" v-model="group.groupName" />
       </div>
@@ -52,38 +52,37 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
-.header {
-  padding-bottom: 200px;
+
+.prompt {
+  padding-bottom: 100px;
   font-size: 30px;
 }
+.content {
+  background: rgba(255, 255, 255, 0.911);
+  padding-bottom: 100px;
+  width: 760px;
+  height: 600px;
+  box-shadow: 0px 0px 10px black;
+}
 .field {
-  padding-top: 25px;
-  align-items: center;
+  padding-top: 250px;
   margin: auto;
   text-align: center;
 }
-.actions {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.create-form {
-  justify-content: center;
-  align-content: center;
-}
+
 .create-group {
+  background: #fff;
+  position: relative;
   justify-content: center;
   margin-right: auto;
   margin-left: auto;
-  background: #fff;
   font-size: 14px;
-  margin-top: 30px;
+  margin-top: 20px;
+  padding-top: 120px;
   padding: 16px 20px;
-  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
-  text-transform: uppercase;
+  text-transform: upp ercase;
   font-weight: 700;
-  position: relative;
   align-items: center;
   width: 50%;
   color: black;
@@ -96,15 +95,5 @@ export default {
 .create-group.hover {
   border-color: #6a679e;
   outline: none;
-}
-.form-control {
-  border: none;
-  border-bottom: 2px solid #d1d1d4;
-  background: none;
-  padding: 10px;
-  padding-left: 24px;
-  font-weight: 700;
-  width: 75%;
-  transition: 0.2s;
 }
 </style>

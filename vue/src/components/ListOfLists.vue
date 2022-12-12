@@ -10,9 +10,14 @@
           v-for="list in this.$store.state.lists"
           :key="list.list_id"
         >
-          <td class="lists">
-            <list :list="list" />
-          </td>
+          <router-link
+            class="list-cards"
+            :to="{ name: 'items', params: { listId: list.listId } }"
+          >
+            <td class="lists">
+              <list :list="list" />
+            </td>
+          </router-link>
         </tr>
       </tbody>
     </table>
