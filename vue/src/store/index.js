@@ -35,6 +35,7 @@ export default new Vuex.Store({
       num_of_items: "",
       groupId: "",
     }],
+
     token: currentToken || '',
     user: currentUser || {},
   },
