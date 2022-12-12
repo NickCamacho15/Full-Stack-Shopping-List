@@ -3,11 +3,9 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ItemDao;
 import com.techelevator.model.Item;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,12 @@ public class ItemController {
     @GetMapping("items/{listId}")
     public List<Item> getItemsByListId(@PathVariable int listId){
         return this.itemDao.getItemsByListId(listId);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/items/{listId}/additem")
+    public boolean createNewItem(@PathVariable int listId, @RequestParam String itemName, @RequestParam int quantity){
+        return this.itemDao.addItem(listId,itemName,quantity);
     }
 
 }

@@ -9,6 +9,7 @@ import AddGroup from '../views/AddGroup.vue'
 import DisplayLists from '../views/DisplayLists.vue'
 import AddList from '../views/AddList.vue'
 import DisplayItems from '../views/DisplayItems.vue'
+import AddItem from '../views/AddItem.vue'
 
 
 Vue.use(Router)
@@ -38,6 +39,11 @@ const router = new Router({
       path: '/items/:listId',
       name: 'items',
       component: DisplayItems
+    },
+    {
+      path: '/lists/:listId/additem',
+      name: 'AddItem',
+      component: AddItem,
     },
     {
       path: '/lists/:groupId',

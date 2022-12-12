@@ -26,7 +26,7 @@ export default new Vuex.Store({
     items: [{
       itemId: "",
       itemName: "",
-      quantity: "",
+      quantity: 0,
       listId: ""
     }],
     groups: [{
