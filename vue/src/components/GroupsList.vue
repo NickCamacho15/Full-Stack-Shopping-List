@@ -62,7 +62,6 @@ export default {
   justify-content: center;
   margin: 100px;
 }
-
 .header {
   font-size: 28px;
   justify-content: center;
