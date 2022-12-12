@@ -62,13 +62,19 @@ export default {
   justify-content: center;
   margin: 200px;
 }
-
+.lists {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+}
 .header {
   font-size: 28px;
   justify-content: center;
 }
 .body {
   justify-content: center;
+  border: 20px;
 }
 .groups {
   padding-bottom: 20px;
