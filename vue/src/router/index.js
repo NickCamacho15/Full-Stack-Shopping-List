@@ -8,6 +8,7 @@ import store from '../store/index'
 import AddGroup from '../views/AddGroup.vue'
 import DisplayLists from '../views/DisplayLists.vue'
 import AddList from '../views/AddList.vue'
+import DisplayItems from '../views/DisplayItems.vue'
 
 
 Vue.use(Router)
@@ -32,6 +33,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/items/:listId',
+      name: 'items',
+      component: DisplayItems
     },
     {
       path: '/lists/:groupId',

@@ -14,7 +14,7 @@ import java.util.List;
 @PreAuthorize("isAuthenticated()")
 public class ItemListController {
 
-    private ItemListDao itemListDao;
+    private final ItemListDao itemListDao;
     public ItemListController (ItemListDao itemListDao){
         this.itemListDao= itemListDao;
     }
