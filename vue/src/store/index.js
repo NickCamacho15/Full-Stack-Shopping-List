@@ -33,6 +33,7 @@ export default new Vuex.Store({
       group_id: "",
       group_name: "",
       admin_id: "",
+      group_code: "",
     }],
     lists: [{
       list_id: "",

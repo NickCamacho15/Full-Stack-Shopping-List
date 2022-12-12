@@ -29,6 +29,7 @@ export default {
       group: {
         groupId: "",
         groupName: "",
+        groupCode: "",
       },
     };
   },

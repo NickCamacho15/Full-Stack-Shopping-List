@@ -29,6 +29,7 @@ public class GroupController {
         return this.groupDao.createGroup(username, groupName);
     }
 
+    @PreAuthorize("permitAll()")
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/groups/{groupId}/adduser/{userId}")
     public boolean update(@PathVariable int groupId, @PathVariable int userId){
