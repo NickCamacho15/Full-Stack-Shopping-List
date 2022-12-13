@@ -68,11 +68,12 @@ public class JdbcGroupDao implements GroupDao {
     }
 
 
-    public boolean addUserToGroup(int userId, int groupId) {
+
+    public boolean addUserToGroup(int userId, String inviteCode) {
         final String sql = "INSERT INTO group_member (user_id, group_id)\n" +
-                "VALUES (?, ?);";
+                "VALUES (?, (SELECT group_id FROM groups WHERE group_code = ?))";
         try {
-            this.jdbcTemplate.update(sql, userId, groupId);
+            this.jdbcTemplate.update(sql, userId, inviteCode);
             return true;
         } catch (DataAccessException e) {
             System.out.println("Failed to update due to an exception." + e.getMessage());
@@ -80,17 +81,28 @@ public class JdbcGroupDao implements GroupDao {
         }
     }
 
-    public String getCodeByGroupName(String groupName){
-        final String sql = "SELECT group_code FROM groups WHERE group_name = ?;";
-        try{
-            SqlRowSet result = this.jdbcTemplate.queryForRowSet(sql, groupName);
-            return result.getString("group_code");
-        }catch (DataAccessException e) {
+    public int getGroupIdByCode(String code) {
+        final String sql = "SELECT group_id FROM groups WHERE group_code = ?;";
+        try {
+            int result = this.jdbcTemplate.queryForObject(sql, Integer.class, code);
+            return result;
+        } catch (DataAccessException e) {
             System.out.println(e.getMessage());
-            return "DUMMY";
+            return 0;
+        }
+    }
+        public boolean inviteCodeConfirmed(String inputCode)
+        {
+            final String sql = "SELECT group_code FROM groups WHERE group_code = ?;";
+            String codeResult = this.jdbcTemplate.queryForObject(sql, String.class, inputCode);
+//            String codeResult = sqlCode.getString("group_code");
+            if(codeResult != null && inputCode.equalsIgnoreCase(codeResult))
+            {
+                return true;
+            }
+            else return false;
         }
 
-    }
 
 
     // public List<User> getMembersByGroup
