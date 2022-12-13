@@ -41,7 +41,7 @@
 
       <label for="password" class="sr-only"></label>
       <div class="login__field">
-        <font-awesome-icon icon="fa-solid fa-lock" />
+        <!-- <font-awesome-icon icon="fa-solid fa-lock" /> -->
         <input
           type="password"
           id="password"
@@ -109,7 +109,7 @@ export default {
 </script>
 
 <style scope>
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+/* @import url("https://fonts.googleapis.com/css?family=Raleway:400,700"); */
 * {
   box-sizing: border-box;
   margin: 0;

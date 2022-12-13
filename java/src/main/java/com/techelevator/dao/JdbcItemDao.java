@@ -21,7 +21,7 @@ public class JdbcItemDao implements ItemDao{
 
     @Override
     public List<Item> getItemsByListId(int listId) {
-        final String sql = "\tSELECT i.item_id, i.item_name, i.quantity, i.list_id\n" +
+        final String sql = "\tSELECT i.item_id, i.item_name, i.quantity, i.list_id, i.user_id, i.date_added\n" +
                 "\tFROM items i\n" +
                 "\tJOIN lists l ON l.list_id = i.list_id\n" +
                 "\tWHERE l.list_id = ?\n" +
@@ -36,14 +36,14 @@ public class JdbcItemDao implements ItemDao{
     }
 
     @Override
-    public boolean addItem(int listId, String itemName,int quantity) {
-        final String sql = "\tINSERT INTO items(\n" +
-                "\titem_name, quantity, list_id)\n" +
-                "\tVALUES (?, ?, ?)\n" +
-                "\tRETURNING item_id;";
+    public boolean addItem(int listId, String itemName,int quantity, int userId) {
+        final String sql = "INSERT INTO items(\n" +
+                "item_name, quantity, list_id, user_id)\n" +
+                "VALUES (?, ?, ?, ?)\n" +
+                "RETURNING item_id;";
 
         try{
-            Integer newItemId = jdbcTemplate.queryForObject(sql, Integer.class, itemName, quantity, listId);
+            Integer newItemId = jdbcTemplate.queryForObject(sql, Integer.class, itemName, quantity, listId, userId);
             return true;
         }catch (DataAccessException e){
             System.out.println(e.getMessage());
@@ -57,6 +57,8 @@ public class JdbcItemDao implements ItemDao{
         item.setItemName(sqlRowSet.getString("item_name"));
         item.setQuantity(sqlRowSet.getInt("quantity"));
         item.setListId(sqlRowSet.getInt("list_id"));
+        item.setUserId(sqlRowSet.getInt("user_id"));
+        item.setDateAdded(sqlRowSet.getDate("date_added").toLocalDate());
         return item;
     }
 
