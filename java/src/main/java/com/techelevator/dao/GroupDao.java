@@ -7,7 +7,9 @@ import java.util.List;
 public interface GroupDao {
     List<Group> getGroups(String username);
     boolean createGroup(String username, String groupName);
-    boolean addUserToGroup(int userId, int groupId);
+    boolean addUserToGroup(int userId, String inviteCode);
     String generateGroupCode();
-    String getCodeByGroupName(String groupName);
+    int getGroupIdByCode(String code);
+
+    boolean inviteCodeConfirmed(String code);
 }
