@@ -156,7 +156,9 @@ body #register {
   left: 0px; */
   width: 760px;
   padding: 30px;
-  padding-top: 120px;
+  margin: auto;
+  text-align: center;
+  /* padding-top: 120px; */
   box-shadow: 0px 0px 10px #5c5696;
   /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
   height: 100%;

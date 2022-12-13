@@ -41,7 +41,6 @@ export default {
 .group-list {
   align-items: center;
   background: linear-gradient(90deg, white, white);
-
   width: 760px;
   padding: 30px;
   margin: auto;
