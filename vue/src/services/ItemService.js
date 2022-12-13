@@ -5,7 +5,7 @@ export default {
         return axios.get(`/items/${listId}`)
     },
 
-    createNewItem(listId, itemName, quantity) {
-        return axios.post(`/items/${listId}/additem?itemName=${itemName}&quantity=${quantity}`);
-    },
+    createNewItem(listId, item) {
+        return axios.post(`/items/${listId}/additem`, item)
+    }
 }
