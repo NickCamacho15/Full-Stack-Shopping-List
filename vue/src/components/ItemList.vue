@@ -48,4 +48,25 @@ export default {
 </script>
 
 <style scoped>
+#itemTable {
+  display: flex;
+  justify-content: center;
+  margin: 200px;
+}
+.items {
+  background: #fff;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 100px;
+}
+.header {
+  font-size: 28px;
+  justify-content: center;
+}
+.body {
+  justify-content: center;
+  border: 20px;
+}
 </style>

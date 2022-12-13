@@ -13,7 +13,7 @@
         :to="{ name: 'AddItem', params: { listId: currentList } }"
         >Add a item to this list</router-link
       >
-      <item-list v-bind:listId="currentList"></item-list>
+      <item-list class="component" v-bind:listId="currentList"></item-list>
     </div>
   </div>
 </template>
@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.items-list-title {
+  font-size: 32px;
+}
 .image1 {
   min-height: 100%;
   min-width: 1024px;
@@ -69,7 +72,7 @@ export default {
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 40%;
   color: black;
   box-shadow: 0px 2px 2px black;
   cursor: pointer;
