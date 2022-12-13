@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ItemDao {
     public List<Item> getItemsByListId(int listId);
-    boolean addItem(int listId, String itemName,int quantity);
+    boolean addItem(int listId, String itemName,int quantity, int userId);
 }

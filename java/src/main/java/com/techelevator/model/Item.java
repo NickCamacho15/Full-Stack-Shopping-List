@@ -1,19 +1,43 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Item {
     private int itemId;
     private int quantity;
     private String itemName;
     private int listId;
+    private int userId;
+    private LocalDate dateAdded;
 
-    public Item(int itemId, int quantity, String itemName, int listId) {
-        this.itemId = itemId;
+    public Item(int quantity, String itemName, int listId, int userId
+    ) {
         this.quantity = quantity;
         this.itemName = itemName;
         this.listId = listId;
+        this.userId = userId;
     }
 
-    public Item(){};
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public LocalDate getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(LocalDate dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public Item() {
+    }
+
+    ;
 
     public int getItemId() {
         return itemId;
