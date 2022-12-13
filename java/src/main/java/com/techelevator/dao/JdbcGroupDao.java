@@ -69,10 +69,10 @@ public class JdbcGroupDao implements GroupDao {
 
 
     public boolean addUserToGroup(int userId, int groupId) {
-        final String sql = "INSERT INTO group_member (group_id, user_id)\n" +
+        final String sql = "INSERT INTO group_member (user_id, group_id)\n" +
                 "VALUES (?, ?);";
         try {
-            this.jdbcTemplate.update(sql, groupId, userId);
+            this.jdbcTemplate.update(sql, userId, groupId);
             return true;
         } catch (DataAccessException e) {
             System.out.println("Failed to update due to an exception." + e.getMessage());
