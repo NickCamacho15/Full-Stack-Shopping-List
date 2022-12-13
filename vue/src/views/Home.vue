@@ -22,9 +22,22 @@
 import GroupsList from "@/components/GroupsList.vue";
 export default {
   components: { GroupsList },
+  data() {
+    return {
+      showButton: false,
+    };
+  },
+  methods: {},
+  computed: {},
 };
 </script>
 <style scoped>
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 .group-list-title {
   font-size: 32px;
 }
@@ -40,8 +53,8 @@ export default {
 }
 .group-list {
   align-items: center;
-  background: linear-gradient(90deg, white, white);
 
+  background: linear-gradient(90deg, white, white);
   width: 760px;
   padding: 30px;
   margin: auto;

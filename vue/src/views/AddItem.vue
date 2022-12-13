@@ -5,9 +5,10 @@
       src="../assets/pexels-tirachard-kumtanom-733852.jpg"
       alt="background image"
     />
-
-    <!-- <h1>Create new item</h1> -->
-    <create-item class="component" v-bind:listId="currentList" />
+    <div class="component">
+      <!-- <h1>Create new item</h1> -->
+      <create-item v-bind:listId="currentList" />
+    </div>
   </div>
 </template>
 
@@ -27,13 +28,9 @@ export default {
 .image1 {
   z-index: -1;
 }
-.create {
+/* .create {
   justify-content: center;
   text-align: center;
   align-items: center;
-}
-.component {
-  padding-top: 110px;
-  padding-left: 500px;
-}
+} */
 </style>
