@@ -1,7 +1,7 @@
 <template>
   <div class="items">
     <h1 class="item-names">{{ item.itemName }}</h1>
-    <h2 class="items-on-list">{{ item.quantity }}</h2>
+    <h2 class="items-on-list">Quantity: {{ item.quantity }}</h2>
   </div>
 </template>
 
@@ -13,4 +13,8 @@ export default {
 </script>
 
 <style scoped>
+.items {
+  justify-content: center;
+  align-items: center;
+}
 </style>

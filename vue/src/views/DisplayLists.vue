@@ -49,11 +49,6 @@ export default {
 .list-lists {
   align-items: center;
   background: linear-gradient(90deg, white, white);
-
-  /* top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
   width: 760px;
   padding: 30px;
   margin: auto;
