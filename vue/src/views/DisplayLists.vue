@@ -1,19 +1,19 @@
 <template>
-  <div class="lists">
+  <div class="main-div">
     <img
       class="image1"
       src="../assets/pexels-tirachard-kumtanom-733852.jpg"
       alt="background image"
     />
-    <div class="list-lists">
-      <h1 class="lists-list-title">Lists for this group</h1>
+    <div class="list">
+      <h1 class="list-title">Lists for this group</h1>
+      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
       <router-link
         tag="button"
-        class="open-create-form"
+        class="add-list-button"
         :to="{ name: 'AddList', params: { groupId: currentGroup } }"
-        >Add a list to this group</router-link
+        >Add List +</router-link
       >
-      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
     </div>
   </div>
 </template>
@@ -33,9 +33,16 @@ export default {
 };
 </script>
 <style scoped>
-.lists-list-title {
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.list-title {
   font-size: 32px;
 }
+
 .image1 {
   min-height: 100%;
   min-width: 1024px;
@@ -46,20 +53,18 @@ export default {
   left: 0px;
   z-index: -1;
 }
-.list-lists {
+.list {
   align-items: center;
-  background: linear-gradient(90deg, white, white);
+  background: rgba(255, 255, 255, 0.911);
   width: 760px;
   padding: 30px;
   margin: auto;
   text-align: center;
   padding-top: 120px;
   box-shadow: 0px 0px 10px black;
-  /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
-  /**/
-  height: auto;
+  /* height: 600px; */
 }
-.open-create-form {
+.add-list-button {
   justify-content: center;
   margin: 0 auto;
   width: 50%;
@@ -74,7 +79,7 @@ export default {
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 50%;
   color: black;
   box-shadow: 0px 2px 2px black;
   cursor: pointer;

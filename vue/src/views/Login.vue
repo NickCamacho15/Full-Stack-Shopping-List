@@ -143,23 +143,16 @@ body #login {
 }
 
 .form-signin {
-  background: linear-gradient(90deg, white, white);
+  background: rgba(255, 255, 255, 0.911);
   position: absolute;
-  /* top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
   width: 760px;
   padding: 30px;
   margin: auto;
   text-align: center;
   padding-top: 120px;
   box-shadow: 0px 0px 10px black;
-  /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
   height: 100%;
-  /**/
   height: 600px;
-  /* box-shadow: 0px 0px 24px #5c5696; */
 }
 
 .login__field {

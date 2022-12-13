@@ -25,6 +25,12 @@ export default {
 };
 </script>
 <style scoped>
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 .group-list-title {
   font-size: 32px;
 }
@@ -40,6 +46,7 @@ export default {
 }
 .group-list {
   align-items: center;
+
   background: linear-gradient(90deg, white, white);
   width: 760px;
   padding: 30px;

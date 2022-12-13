@@ -60,7 +60,10 @@ export default {
 #listTable {
   display: flex;
   justify-content: center;
-  margin: 200px;
+  margin: auto;
+}
+.list-cards {
+  text-decoration: none;
 }
 .lists {
   border: 1px solid black;
@@ -75,8 +78,5 @@ export default {
 .body {
   justify-content: center;
   border: 20px;
-}
-.groups {
-  padding-bottom: 20px;
 }
 </style>
