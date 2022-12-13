@@ -23,12 +23,14 @@ public class GroupController {
     public List<Group> getGroupsByUser(@PathVariable String username)
     {return this.groupDao.getGroups(username);}
 
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/addgroup")
     public boolean create(@RequestParam String username, @RequestParam String groupName){
         return this.groupDao.createGroup(username, groupName);
     }
 
+    @PreAuthorize("permitAll()")
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/groups/{groupId}/adduser/{userId}")
     public boolean update(@PathVariable int groupId, @PathVariable int userId){
