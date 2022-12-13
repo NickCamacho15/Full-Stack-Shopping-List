@@ -36,6 +36,9 @@ export default {
     currentUsername() {
       return this.$store.state.user.username;
     },
+    displayInviteCode() {
+      return this.$store.state.groups.group_code;
+    },
   },
   methods: {
     listGroup() {
@@ -62,7 +65,6 @@ export default {
   justify-content: center;
   margin: 100px;
 }
-
 .header {
   font-size: 28px;
   justify-content: center;

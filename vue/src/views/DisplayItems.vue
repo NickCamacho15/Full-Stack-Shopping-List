@@ -1,39 +1,37 @@
 <template>
-  <div class="lists">
+  <div class="items">
     <img
       class="image1"
       src="../assets/pexels-tirachard-kumtanom-733852.jpg"
       alt="background image"
     />
-    <div class="list-lists">
-      <h1 class="lists-list-title">Lists for this group</h1>
+    <div class="item-lists">
+      <h1 class="items-list-title">Items for this list</h1>
       <router-link
         tag="button"
         class="open-create-form"
-        :to="{ name: 'AddList', params: { groupId: currentGroup } }"
-        >Add a list to this group</router-link
+        :to="{ name: 'AddItem', params: { listId: currentList } }"
+        >Add a item to this list</router-link
       >
-      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
+      <item-list class="component" v-bind:listId="currentList"></item-list>
     </div>
   </div>
 </template>
 
 <script>
-import ListOfLists from "../components/ListOfLists.vue";
-
+import ItemList from "../components/ItemList.vue";
 export default {
-  components: {
-    ListOfLists,
-  },
+  components: { ItemList },
   computed: {
-    currentGroup() {
-      return this.$route.params.groupId;
+    currentList() {
+      return this.$route.params.listId;
     },
   },
 };
 </script>
+
 <style scoped>
-.lists-list-title {
+.items-list-title {
   font-size: 32px;
 }
 .image1 {
@@ -46,7 +44,7 @@ export default {
   left: 0px;
   z-index: -1;
 }
-.list-lists {
+.items-list {
   align-items: center;
   background: linear-gradient(90deg, white, white);
   width: 760px;
@@ -74,7 +72,7 @@ export default {
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 40%;
   color: black;
   box-shadow: 0px 2px 2px black;
   cursor: pointer;

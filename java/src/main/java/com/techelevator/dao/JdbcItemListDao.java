@@ -43,10 +43,11 @@ public class JdbcItemListDao implements ItemListDao {
 
         try {
             Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listName, groupId);
+            return true;
         } catch (DataAccessException e) {
             System.out.println(e.getMessage());
+            return false;
         }
-        return true;
     }
 
     private ItemList mapRowToLists(SqlRowSet sqlRowSet) {

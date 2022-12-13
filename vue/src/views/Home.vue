@@ -20,7 +20,6 @@
 
 <script>
 import GroupsList from "@/components/GroupsList.vue";
-
 export default {
   components: { GroupsList },
 };
@@ -43,10 +42,6 @@ export default {
   align-items: center;
   background: linear-gradient(90deg, white, white);
 
-  /* top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
   width: 760px;
   padding: 30px;
   margin: auto;

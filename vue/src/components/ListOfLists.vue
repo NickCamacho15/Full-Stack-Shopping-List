@@ -10,9 +10,14 @@
           v-for="list in this.$store.state.lists"
           :key="list.list_id"
         >
-          <td class="lists">
-            <list :list="list" />
-          </td>
+          <router-link
+            class="list-cards"
+            :to="{ name: 'items', params: { listId: list.listId } }"
+          >
+            <td class="lists">
+              <list :list="list" />
+            </td>
+          </router-link>
         </tr>
       </tbody>
     </table>
@@ -57,13 +62,19 @@ export default {
   justify-content: center;
   margin: 200px;
 }
-
+.lists {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+}
 .header {
   font-size: 28px;
   justify-content: center;
 }
 .body {
   justify-content: center;
+  border: 20px;
 }
 .groups {
   padding-bottom: 20px;

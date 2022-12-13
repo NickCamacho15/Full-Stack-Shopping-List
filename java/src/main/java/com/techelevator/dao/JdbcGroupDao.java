@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class JdbcGroupDao implements GroupDao {
@@ -19,7 +20,7 @@ public class JdbcGroupDao implements GroupDao {
 
     @Override
     public List<Group> getGroups(String username) {
-        final String sql = "SELECT g.group_id, g.group_name, g.create_date \n" +
+        final String sql = "SELECT g.group_id, g.group_name, g.create_date, g.group_code\n" +
                 "FROM groups g\n" +
                 "JOIN group_member as gm ON g.group_id = gm.group_id\n" +
                 "JOIN users as u ON gm.user_id = u.user_id\n" +
@@ -35,15 +36,16 @@ public class JdbcGroupDao implements GroupDao {
     }
 
     public boolean createGroup(String username, String groupName) {
-        final String sql = "INSERT INTO groups(admin_id, group_name)\n" +
-                "VALUES ((SELECT user_id FROM users WHERE username = ?), ?)\n" +
+        final String code = generateGroupCode();
+        final String sql = "INSERT INTO groups(admin_id, group_name, group_code)\n" +
+                "VALUES ((SELECT user_id FROM users WHERE username = ?), ?, ?)\n" +
                 "RETURNING group_id;";
         Integer newGroupId;
         final String sql2 = "INSERT INTO group_member(user_id, group_id)\n" +
                 "VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
 
         try {
-            newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, username, groupName);
+            newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, username, groupName, code);
             jdbcTemplate.update(sql2, username, newGroupId);
             return true;
 
@@ -53,6 +55,18 @@ public class JdbcGroupDao implements GroupDao {
         }
 
     }
+
+    public String generateGroupCode() {
+        final String legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        final Random randomGenerator = new Random();
+        String inviteCode="";
+        while(inviteCode.length() <= 4){
+            int randomCharIndex = randomGenerator.nextInt(legalChars.length());
+            inviteCode += legalChars.substring(randomCharIndex, randomCharIndex+1);
+        }
+        return inviteCode;
+    }
+
 
     public boolean addUserToGroup(int userId, int groupId) {
         final String sql = "INSERT INTO group_member (group_id, user_id)\n" +
@@ -66,6 +80,19 @@ public class JdbcGroupDao implements GroupDao {
         }
     }
 
+    public String getCodeByGroupName(String groupName){
+        final String sql = "SELECT group_code FROM groups WHERE group_name = ?;";
+        try{
+            SqlRowSet result = this.jdbcTemplate.queryForRowSet(sql, groupName);
+            return result.getString("group_code");
+        }catch (DataAccessException e) {
+            System.out.println(e.getMessage());
+            return "DUMMY";
+        }
+
+    }
+
+
     // public List<User> getMembersByGroup
 //    List<String> memberList = new ArrayList<>();
 //    memberList.add(sqlRowSet.getString("username"));
@@ -75,6 +102,7 @@ public class JdbcGroupDao implements GroupDao {
         group.setGroupId(sqlRowSet.getInt("group_id"));
         group.setGroupName(sqlRowSet.getString("group_name"));
         group.setCreateDate(sqlRowSet.getDate("create_date").toLocalDate());
+        group.setGroupCode(sqlRowSet.getString("group_code"));
         return group;
 
     }

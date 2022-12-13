@@ -5,8 +5,11 @@
       src="../assets/pexels-tirachard-kumtanom-733852.jpg"
       alt="background image"
     />
-    <h1>Create new group</h1>
-    <create-group v-bind:groupName="this.$route.params.groupName" />
+    <!-- <h1>Create new group</h1> -->
+    <create-group
+      class="component"
+      v-bind:groupName="this.$route.params.groupName"
+    />
   </div>
 </template>
 
@@ -28,22 +31,7 @@ export default {
   left: 0px;
   z-index: -3;
 }
-.create-form {
-  background: linear-gradient(90deg, white, white);
-  position: absolute;
-  /* top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
-  width: 760px;
-  padding-bottom: 100px;
-  box-shadow: 0px 0px 10px #5c5696;
-  /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
-  height: 100%;
-  /**/
-  height: 600px;
-  /* box-shadow: 0px 0px 24px #5C5696; */
-}
+
 .create {
   padding-top: 100px;
   text-align: center;
