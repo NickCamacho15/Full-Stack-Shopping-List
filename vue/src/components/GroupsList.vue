@@ -16,6 +16,19 @@
         </tr>
       </tbody>
     </table>
+    <button v-on:click="showForm = !showForm">Join Group</button>
+    <div v-show="showForm">
+      <form @submit.prevent="addUserToGroup()">
+        <label for="code-input">Group Code:</label><br />
+        <input
+          type="text"
+          id="code-input"
+          name="code-input"
+          v-model="codeInput"
+        /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   </section>
 </template>
 
@@ -27,7 +40,10 @@ export default {
   name: "group-list",
   components: { Group },
   data() {
-    return {};
+    return {
+      codeInput: "",
+      showForm: false,
+    };
   },
   computed: {
     setGroups() {
@@ -36,14 +52,18 @@ export default {
     currentUsername() {
       return this.$store.state.user.username;
     },
-    displayInviteCode() {
-      return this.$store.state.groups.group_code;
-    },
   },
   methods: {
     listGroup() {
       GroupService.getGroups(this.currentUsername).then((response) => {
         this.$store.commit("SET_GROUPS", response.data);
+      });
+    },
+    addUserToGroup() {
+      GroupService.addUserToGroup(this.codeInput).then((response) => {
+        if (response.status === 202) {
+          alert("User added!");
+        }
       });
     },
   },

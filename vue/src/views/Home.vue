@@ -22,6 +22,13 @@
 import GroupsList from "@/components/GroupsList.vue";
 export default {
   components: { GroupsList },
+  data() {
+    return {
+      showButton: false,
+    };
+  },
+  methods: {},
+  computed: {},
 };
 </script>
 <style scoped>
