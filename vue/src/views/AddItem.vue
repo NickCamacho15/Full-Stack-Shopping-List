@@ -27,13 +27,10 @@ export default {
 .image1 {
   z-index: -1;
 }
-.create {
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
 .component {
-  padding-top: 110px;
-  padding-left: 500px;
+  display: grid;
+  place-self: center;
+  /* padding-top: 120px;
+  padding-left: 500px; */
 }
 </style>

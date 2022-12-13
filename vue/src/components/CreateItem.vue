@@ -84,7 +84,6 @@ export default {
   align-content: stretch; */
 }
 .create-item-form {
-  align-items: center;
   justify-content: center;
 }
 
