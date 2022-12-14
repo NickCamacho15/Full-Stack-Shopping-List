@@ -100,13 +100,9 @@ export default {
   height: 600px;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  /* align-items: center; */
-=======
-  align-content: stretch; */
+  align-content: stretch;
 }
 .create-item-form {
->>>>>>> NikolaiStyling
   justify-content: center;
 }
 .login__field {
