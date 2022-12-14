@@ -11,4 +11,8 @@ export default {
         return axios.post(`/lists/${groupId}/addlist?listName=${listName}`);
     },
 
+    getItemCount(listId) {
+        return axios.get(`lists/test/?listId=${listId}`)
+    }
+
 }

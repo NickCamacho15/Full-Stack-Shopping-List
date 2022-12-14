@@ -31,6 +31,13 @@ public class ItemListController {
         return this.itemListDao.createItemList(listName, groupId);
     }
 
+    @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/lists/test/")
+    public Integer countItems(@RequestParam int listId) {
+        return this.itemListDao.countItemsOnList(listId);
+    }
+
 
 
 
