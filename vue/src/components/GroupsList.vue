@@ -9,7 +9,8 @@
           <router-link
             class="group-cards"
             :to="{ name: 'lists', params: { groupId: group.groupId } }"
-            ><td class="groups">
+          >
+            <td class="groups">
               <group :group="group" style="padding-top: 15px" />
             </td>
           </router-link>
@@ -68,6 +69,7 @@ export default {
     addUserToGroup() {
       GroupService.addUserToGroup(this.codeInput).then((response) => {
         if (response.status === 202) {
+          this.listGroup();
           alert("User added!");
         }
       });

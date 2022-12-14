@@ -2,7 +2,6 @@
   <div class="create-form">
     <form class="content" v-on:submit.prevent>
       <div class="field">
-        <!-- <h1 class="header">Create a group</h1> -->
         <label class="prompt" for="Name">Please enter a group name:</label>
         <input type="text" class="form-control" v-model="group.groupName" />
       </div>

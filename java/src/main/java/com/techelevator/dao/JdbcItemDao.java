@@ -18,7 +18,6 @@ public class JdbcItemDao implements ItemDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     @Override
     public List<Item> getItemsByListId(int listId) {
         final String sql = "\tSELECT i.item_id, i.item_name, i.quantity, i.list_id, i.user_id, i.date_added\n" +
@@ -49,6 +48,14 @@ public class JdbcItemDao implements ItemDao{
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    @Override
+    public void removeFromList(int listId, int itemId) {
+        String sql = "DELETE FROM items\n" +
+                "WHERE list_id = ? AND item_id = ?;";
+        this.jdbcTemplate.update(sql, listId, itemId);
+
     }
 
     private Item mapRowToItem(SqlRowSet sqlRowSet){

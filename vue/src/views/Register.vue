@@ -6,14 +6,13 @@
         src="../assets/pexels-tirachard-kumtanom-733852.jpg"
         alt="background image"
       />
-      <img class="image2" src="../assets/logo.png" alt="logo" />
+      <img class="image2" src="../assets/monika's.png" alt="logo" />
     </div>
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">create account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <!-- <label for="username" class="sr-only">Username</label> -->
       <div class="login__field">
         <input
           type="text"
@@ -25,7 +24,7 @@
           autofocus
         />
       </div>
-      <!-- <label for="password" class="sr-only">Password</label> -->
+
       <div class="login__field">
         <input
           type="password"
@@ -47,7 +46,6 @@
         />
       </div>
 
-      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit"> -->
       <div class="registration-buttons">
         <button class="create-and-have-an-account-buttons" type="submit">
           Submit
@@ -148,23 +146,15 @@ body #register {
   min-height: 100vh;
 }
 .form-register {
-  background: linear-gradient(90deg, white, white);
+  background: rgba(255, 255, 255, 0.911);
   position: absolute;
-  /* top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
   width: 760px;
-  padding: 30px;
+  padding: 70px;
   margin: auto;
   text-align: center;
-  /* padding-top: 120px; */
   box-shadow: 0px 0px 10px #5c5696;
-  /* z-index: 1; I have added z-index and height from original .screen__content, other staff is from .screen from original  */
   height: 100%;
-  /**/
   height: 600px;
-  /* box-shadow: 0px 0px 24px #5c5696; */
 }
 h1 {
   color: black;
@@ -193,17 +183,6 @@ h1 {
   padding: 20px 0px;
   position: relative;
   text-align: center;
-}
-
-.form-control {
-  border: none;
-  border-bottom: 2px solid #d1d1d4;
-  background: none;
-  padding: 10px;
-  padding-left: 24px;
-  font-weight: 700;
-  width: 75%;
-  transition: 0.2s;
 }
 
 .form-control:active,
