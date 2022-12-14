@@ -30,13 +30,7 @@ export default {
   },
   computed: {
     currentGroup() {
-      return this.$store.state.groups.find(
-        (group) => group.groupId === this.$route.params.groupId
-      );
-
-      // find the group in the store that has the passed in group
-      // id and return it from this computed property
-      // return this.$route.params.groupId
+      return this.$route.params.groupId;
     },
   },
 };
