@@ -6,12 +6,15 @@
       alt="background image"
     />
     <div class="list">
-      <h1 class="list-title">Lists for this group</h1>
-      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
+      <h1 class="list-title">Title: {{ currentGroup.groupName }}</h1>
+      <list-of-lists v-bind:groupId="currentGroup.group_id"></list-of-lists>
       <router-link
         tag="button"
         class="add-list-button"
-        :to="{ name: 'AddList', params: { groupId: currentGroup } }"
+        :to="{
+          name: 'AddList',
+          params: { groupId: currentGroup.group_id },
+        }"
         ><i class="fa-solid fa-plus"></i
       ></router-link>
     </div>
@@ -27,7 +30,13 @@ export default {
   },
   computed: {
     currentGroup() {
-      return this.$route.params.groupId;
+      return this.$store.state.groups.find(
+        (group) => group.groupId === this.$route.params.groupId
+      );
+
+      // find the group in the store that has the passed in group
+      // id and return it from this computed property
+      // return this.$route.params.groupId
     },
   },
 };

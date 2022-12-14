@@ -1,7 +1,7 @@
 <template>
-  <div class="lists">
+  <div class="list">
     <h1 class="list-names">{{ list.listName }}</h1>
-    <h2>quantity:{{ list.numOfItems }}</h2>
+    <h2>quantity : {{ list.numOfItems }}</h2>
   </div>
 </template>
 
@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style scoped>
+.list {
+  border: 20px;
+}
 </style>

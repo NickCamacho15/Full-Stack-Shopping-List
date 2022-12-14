@@ -9,7 +9,8 @@
           <router-link
             class="group-cards"
             :to="{ name: 'lists', params: { groupId: group.groupId } }"
-            ><td class="groups">
+          >
+            <td class="groups">
               <group :group="group" style="padding-top: 15px" />
             </td>
           </router-link>

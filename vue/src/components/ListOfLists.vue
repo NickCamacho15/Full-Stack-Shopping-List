@@ -79,6 +79,6 @@ export default {
 }
 .body {
   justify-content: center;
-  border: 20px;
+  /* border: 20px; */
 }
 </style>
