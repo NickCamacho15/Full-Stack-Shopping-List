@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     currentGroup() {
-      return this.list.groupId;
+      return this.groups.groupId;
     },
   },
 };

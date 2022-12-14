@@ -29,6 +29,10 @@ export default {
     currentGroup() {
       return this.$route.params.groupId;
     },
+    //   return this.$store.state.groups.find(
+    //     (group) => group.groupId === this.$route.params.groupId
+    //   );
+    // },
   },
 };
 </script>
