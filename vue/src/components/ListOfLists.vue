@@ -61,6 +61,7 @@ export default {
   display: flex;
   justify-content: center;
   margin: auto;
+  padding-top: 20px;
 }
 .list-cards {
   text-decoration: none;
@@ -70,6 +71,7 @@ export default {
   border-radius: 10px;
   width: 500px;
   height: 100px;
+  padding-top: 10px;
 }
 .header {
   font-size: 28px;

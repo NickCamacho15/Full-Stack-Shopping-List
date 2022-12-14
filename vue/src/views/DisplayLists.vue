@@ -12,8 +12,8 @@
         tag="button"
         class="add-list-button"
         :to="{ name: 'AddList', params: { groupId: currentGroup } }"
-        >Add List +</router-link
-      >
+        ><i class="fa-solid fa-plus"></i
+      ></router-link>
     </div>
   </div>
 </template>
@@ -65,22 +65,25 @@ export default {
   /* height: 600px; */
 }
 .add-list-button {
+  background: #fff;
+  border: 1px solid #d4d3e8;
+  color: black;
   justify-content: center;
   margin: 0 auto;
-  width: 50%;
-  background: #fff;
-  font-size: 14px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 34px;
   margin-top: 30px;
-  padding: 16px 20px;
-  /* border-radius: 26px; */
-  border: 1px solid #d4d3e8;
-  text-transform: uppercase;
-  text-align: justify;
+
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 50%;
-  color: black;
+  text-transform: uppercase;
+
   box-shadow: 0px 2px 2px black;
   cursor: pointer;
   transition: 0.2s;
