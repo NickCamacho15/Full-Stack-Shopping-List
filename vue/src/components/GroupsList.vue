@@ -63,6 +63,7 @@ export default {
     addUserToGroup() {
       GroupService.addUserToGroup(this.codeInput).then((response) => {
         if (response.status === 202) {
+          this.listGroup();
           alert("User added!");
         }
       });
