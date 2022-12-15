@@ -33,6 +33,7 @@ public class ItemController {
     @PostMapping("/items/{listId}/additem")
     public boolean createNewItem(@PathVariable int listId, @RequestBody Item item) {
         return this.itemDao.addItem(listId, item.getItemName(), item.getQuantity(), item.getUserId());
+
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
