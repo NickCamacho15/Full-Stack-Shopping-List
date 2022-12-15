@@ -6,12 +6,12 @@
       alt="background image"
     />
     <div class="list">
-      <h1 class="list-title">Lists for this group</h1>
+      <h1 class="list-title">{{ currentGroup.groupName }}</h1>
       <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
       <router-link
         tag="button"
         class="add-list-button"
-        :to="{ name: 'AddList', params: { groupId: currentGroup } }"
+        :to="{ name: 'AddList', params: { groupId: currentGroup.group_id } }"
         >Add List +</router-link
       >
     </div>
@@ -27,7 +27,9 @@ export default {
   },
   computed: {
     currentGroup() {
-      return this.$route.params.groupId;
+      return this.$store.state.groups.find(
+        (group) => group.groupId === this.$route.params.groupId
+      );
     },
   },
 };
