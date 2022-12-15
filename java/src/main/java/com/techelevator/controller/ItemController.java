@@ -36,4 +36,10 @@ public class ItemController {
 
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("items/{listId}/removeItem")
+    public void removeItemFromList(@PathVariable int listId, @RequestParam int itemId){
+        this.itemDao.removeFromList(listId, itemId);
+    }
+
 }

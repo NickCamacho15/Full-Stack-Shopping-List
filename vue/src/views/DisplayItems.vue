@@ -78,4 +78,7 @@ export default {
   cursor: pointer;
   transition: 0.2s;
 }
+.component {
+  display: grid;
+}
 </style>
