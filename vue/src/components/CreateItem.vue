@@ -1,23 +1,30 @@
 <template>
-  <div class="create-item-form">
-    <form class="content" v-on:submit.prevent>
-      <div class="field">
-        <label class="label1" for="Name">Please enter item name:</label>
-        <input type="text" class="form-control" v-model="item.itemName" />
+  <div class="create-item">
+    <form class="content-form" v-on:submit.prevent>
+      <label class="label1" for="Name"></label>
+      <div class="login_field">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Item Here"
+          v-model="item.itemName"
+        />
+      </div>
+      <br />
 
-        <label class="label2" for="Quantity">Please enter item quantity:</label>
+      <label class="label2" for="Quantity"></label>
+      <div class="login_field">
         <input
           type="number"
           class="form-control"
+          min="0"
           v-model.number="item.quantity"
+          placeholder="Enter or select quantity here:"
         />
       </div>
+
       <div class="actions">
-        <button
-          class="create-item"
-          type="submit"
-          v-on:click.prevent="saveItem()"
-        >
+        <button class="add-item" type="submit" v-on:click.prevent="saveItem()">
           Add Item
         </button>
       </div>
@@ -36,7 +43,7 @@ export default {
       item: {
         itemId: "",
         itemName: "",
-        quantity: 0,
+        // quantity: 0,
         listId: this.listId,
         userId: 0,
       },
@@ -73,46 +80,56 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 
-.content {
-  background: rgba(255, 255, 255, 0.911);
-  padding-bottom: 100px;
-  width: 760px;
-  height: 600px;
-  box-shadow: 0px 0px 10px black;
-  /* display: flex;
-  flex-direction: column;
-  align-content: stretch; */
-}
-.create-item-form {
+.create-item {
+  display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
-.field {
-  padding-top: 250px;
-  /* align-items: center; */
+.content-form {
+  background: rgba(255, 255, 255, 0.911);
+  position: absolute;
+  width: 760px;
+  padding: 30px;
+
   margin: auto;
-  /* text-align: center; */
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+  /* height: 100%; */
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
 }
-.header {
+.create-item-form {
+  justify-content: center;
+}
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+
+/* .header {
   padding-bottom: 100px;
   font-size: 30px;
-}
-.create-item {
+} */
+.actions {
   align-items: center;
+  text-align: center;
+}
+.add-item {
   background: #fff;
   position: relative;
-  justify-content: center;
   margin-right: auto;
   margin-left: auto;
   font-size: 14px;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-top: 150px;
   padding: 16px 20px;
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
-  align-items: center;
   width: 50%;
   color: black;
   box-shadow: 0px 2px 2px black;
@@ -125,33 +142,28 @@ export default {
   border-color: #6a679e;
   outline: none;
 }
-/* .content {
-  padding-bottom: 50px;
-} */
 
-.actions {
-  align-items: center;
-  text-align: center;
-}
 .form-control {
   border: none;
   border-bottom: 2px solid #d1d1d4;
   background: none;
-  padding: 10px;
+  text-align: center;
+  /* padding: 10px; */
   padding-top: 50px;
-  padding-left: 24px;
+  /* padding-left: 24px; */
   font-weight: 700;
   width: 75%;
   transition: 0.2s;
 }
-.label1 {
+/* .label1 {
   position: fixed;
-  left: 600px;
-  bottom: 490px;
+  left: 10px;
+  bottom: 510px;
+  right: 50px;
 }
 .label2 {
   position: fixed;
   left: 600px;
-  bottom: 420px;
-}
+  bottom: 430px;
+} */
 </style>

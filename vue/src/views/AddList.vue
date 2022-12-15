@@ -51,8 +51,6 @@ export default {
   height: 600px;
   /* box-shadow: 0px 0px 24px #5c5696; */
 }
-.component {
-}
 .create {
   padding-top: 100px;
   text-align: center;

@@ -71,6 +71,13 @@ export default new Vuex.Store({
     SET_LISTS(state, lists) { state.lists = lists },
     SET_ITEMS(state, items) {
       state.items = items
+    },
+    DELETE_ITEM(state, itemSpec) {
+      // itemSpec.listId, itemSpec.itemId
+      itemSpec.listId
+      state.items = state.items.filter((item) => {
+        return item.itemId !== item.itemId;
+      });
     }
   }
 })

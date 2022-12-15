@@ -60,13 +60,18 @@ export default {
 #listTable {
   display: flex;
   justify-content: center;
-  margin: 200px;
+  margin: auto;
+  padding-top: 20px;
+}
+.list-cards {
+  text-decoration: none;
 }
 .lists {
   border: 1px solid black;
   border-radius: 10px;
   width: 500px;
   height: 100px;
+  padding-top: 10px;
 }
 .header {
   font-size: 28px;
@@ -74,9 +79,6 @@ export default {
 }
 .body {
   justify-content: center;
-  border: 20px;
-}
-.groups {
-  padding-bottom: 20px;
+  /* border: 20px; */
 }
 </style>
