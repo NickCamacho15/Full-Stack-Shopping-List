@@ -100,7 +100,9 @@ export default {
   height: 600px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-content: stretch;
+}
+.create-item-form {
   justify-content: center;
 }
 .login__field {

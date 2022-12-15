@@ -6,14 +6,17 @@
       alt="background image"
     />
     <div class="list">
-      <h1 class="list-title">{{ currentGroup.groupName }}</h1>
-      <list-of-lists v-bind:groupId="currentGroup"></list-of-lists>
+      <h1 class="list-title">Title: {{ currentGroup.groupName }}</h1>
+      <list-of-lists v-bind:groupId="currentGroup.groupId"></list-of-lists>
       <router-link
         tag="button"
         class="add-list-button"
-        :to="{ name: 'AddList', params: { groupId: currentGroup.group_id } }"
-        >Add List +</router-link
-      >
+        :to="{
+          name: 'AddList',
+          params: { groupId: currentGroup.groupId },
+        }"
+        ><i class="fa-solid fa-plus"></i
+      ></router-link>
     </div>
   </div>
 </template>
@@ -27,6 +30,8 @@ export default {
   },
   computed: {
     currentGroup() {
+      //   return this.$route.params.groupId;
+      // },
       return this.$store.state.groups.find(
         (group) => group.groupId === this.$route.params.groupId
       );
@@ -67,22 +72,25 @@ export default {
   /* height: 600px; */
 }
 .add-list-button {
+  background: #fff;
+  border: 1px solid #d4d3e8;
+  color: black;
   justify-content: center;
   margin: 0 auto;
-  width: 50%;
-  background: #fff;
-  font-size: 14px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 34px;
   margin-top: 30px;
-  padding: 16px 20px;
-  /* border-radius: 26px; */
-  border: 1px solid #d4d3e8;
-  text-transform: uppercase;
-  text-align: justify;
+
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 50%;
-  color: black;
+  text-transform: uppercase;
+
   box-shadow: 0px 2px 2px black;
   cursor: pointer;
   transition: 0.2s;
