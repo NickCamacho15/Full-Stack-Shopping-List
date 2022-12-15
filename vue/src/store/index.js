@@ -72,12 +72,11 @@ export default new Vuex.Store({
     SET_ITEMS(state, items) {
       state.items = items
     },
-    DELETE_ITEM(state, itemSpec) {
-      // itemSpec.listId, itemSpec.itemId
-      itemSpec.listId
+    DELETE_ITEM(state, itemId) {
       state.items = state.items.filter((item) => {
-        return item.itemId !== item.itemId;
+        return item.itemId !== itemId;
       });
+
     }
   }
 })
