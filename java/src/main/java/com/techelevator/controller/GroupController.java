@@ -29,6 +29,7 @@ public class GroupController {
         return this.groupDao.getGroups(username);
     }
 
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/addgroup")
     public boolean create(@RequestParam String username, @RequestParam String groupName) {

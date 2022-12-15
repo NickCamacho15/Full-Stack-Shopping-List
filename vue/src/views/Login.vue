@@ -6,10 +6,10 @@
         src="../assets/pexels-tirachard-kumtanom-733852.jpg"
         alt="background image"
       />
-      <img class="image2" src="../assets/logo.png" alt="logo" />
+      <img class="image2" src="../assets/monika's.png" alt="logo" />
     </div>
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">welcome to mike's list</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Welcome to Monika's List</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -23,11 +23,11 @@
 
       <label for="username" class="sr-only"></label>
       <div class="login__field">
-        <!-- <link
+        <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway:400,700"
         />
-        <i class="login__icon fa fa-user"></i> -->
+        <i class="fa fa-user" aria-hidden="true"></i>
         <input
           type="text"
           id="username"
@@ -41,7 +41,7 @@
 
       <label for="password" class="sr-only"></label>
       <div class="login__field">
-        <!-- <font-awesome-icon icon="fa-solid fa-lock" /> -->
+        <i class="fa-solid fa-lock"></i>
         <input
           type="password"
           id="password"
@@ -54,7 +54,6 @@
 
       <div class="buttons">
         <button type="submit" class="sign-in-and-registration-buttons">
-          <!-- <i class="button__icon fas fa-chevron-right"></i> -->
           Sign in
         </button>
 
@@ -109,7 +108,7 @@ export default {
 </script>
 
 <style scope>
-/* @import url("https://fonts.googleapis.com/css?family=Raleway:400,700"); */
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -169,7 +168,6 @@ body #login {
   font-size: 14px;
   margin-top: 30px;
   padding: 16px 20px;
-  /* border-radius: 26px; */
   border: 1px solid #d4d3e8;
   text-transform: uppercase;
   font-weight: 700;
