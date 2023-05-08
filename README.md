@@ -1,6 +1,2 @@
 # Final Capstone
-​
-This directory contains all of the starter projects for the final capstone.
-​
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
-# Final-Capstone
+This is an application called "Monikas List" that allows you to create groups where you can share shopping lists and can add/remove items from your lists. Users are able to join groups that have already been created by using a uniquely generated invite code.
